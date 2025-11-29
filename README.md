@@ -1,4 +1,4 @@
-# PCA Analysis: INPUT vs UDNAIP Conditions
+# U-DNA Seq Analysis: *Plasmodium falciparum* PCA Analysis
 
 This analysis performs Principal Component Analysis (PCA) on bigwig files to compare INPUT and UDNAIP conditions across different experiments (3d7_rep1, 3d7_rep2, DMSO, RAPA).
 
@@ -7,15 +7,15 @@ For detailed methodology, design decisions, and development history, see [`METHO
 ## Prerequisites
 
 - Conda/Miniconda installed
-- Bigwig files in the current directory:
-  - `3d7_rep1.Plasmodium.INPUTcorrect.bin100bp.RPGC.bw`
-  - `3d7_rep1.Plasmodium.UDNAIPcorrect.bin100bp.RPGC.bw`
-  - `3d7_rep2.Plasmodium.INPUT.bin100bp.RPGC.bw`
-  - `3d7_rep2.Plasmodium.UDNAIP.bin100bp.RPGC.bw`
-  - `DMSO.INPUT.bin100bp.RPGC.bw`
-  - `DMSO.UDNAIP.bin100bp.RPGC.bw`
-  - `RAPA.INPUT.bin100bp.RPGC.bw`
-  - `RAPA.UDNAIP.bin100bp.RPGC.bw`
+- Bigwig files in the `data/` directory:
+  - `data/3d7_rep1.Plasmodium.INPUTcorrect.bin100bp.RPGC.bw`
+  - `data/3d7_rep1.Plasmodium.UDNAIPcorrect.bin100bp.RPGC.bw`
+  - `data/3d7_rep2.Plasmodium.INPUT.bin100bp.RPGC.bw`
+  - `data/3d7_rep2.Plasmodium.UDNAIP.bin100bp.RPGC.bw`
+  - `data/DMSO.INPUT.bin100bp.RPGC.bw`
+  - `data/DMSO.UDNAIP.bin100bp.RPGC.bw`
+  - `data/RAPA.INPUT.bin100bp.RPGC.bw`
+  - `data/RAPA.UDNAIP.bin100bp.RPGC.bw`
 
 ## Setup
 
@@ -39,19 +39,19 @@ python --version  # Should show Python 3.11.x
 Execute the analysis in Jupyter notebook:
 
 ```bash
-conda run -n reproducibility-analysis jupyter notebook pca_analysis.ipynb
+conda run -n reproducibility-analysis jupyter notebook pca_analysis/pca_analysis.ipynb
 ```
 
 Or run all cells to generate outputs automatically.
 
 ## Output Files
 
-The notebook generates the following outputs:
+The notebook generates the following outputs in the `pca_analysis/` directory:
 
-- **`pca_plot.png`** - 2D PCA scatter plot (PC1 vs PC2, 300 DPI)
-- **`pca_plot.pdf`** - Vector format 2D PCA plot for publications
+- **`pca_analysis/pca_plot.png`** - 2D PCA scatter plot (PC1 vs PC2, 300 DPI)
+- **`pca_analysis/pca_plot.pdf`** - Vector format 2D PCA plot for publications
 - **3D visualization** - Interactive 3D scatter plot (PC1 vs PC2 vs PC3) displayed in notebook
-- **`pca_results.csv`** - PC1, PC2, PC3 scores for all 8 samples
+- **`pca_analysis/pca_results.csv`** - PC1, PC2, PC3 scores for all 8 samples
 
 ## Results Interpretation
 
@@ -103,11 +103,34 @@ The structured separation supports the hypothesis that uracil distribution is me
 # Set up environment from file and run notebook
 conda env create -f environment.yml && \
 conda activate reproducibility-analysis && \
-jupyter notebook pca_analysis.ipynb
+jupyter notebook pca_analysis/pca_analysis.ipynb
 ```
 
 Alternatively, without activating the environment:
 
 ```bash
-conda run -n reproducibility-analysis jupyter notebook pca_analysis.ipynb
+conda run -n reproducibility-analysis jupyter notebook pca_analysis/pca_analysis.ipynb
+```
+
+## Repository Structure
+
+```
+udnaseq-plasmodium/
+├── README.md                           # This file
+├── METHODOLOGY.md                      # Detailed methodology and development history
+├── environment.yml                     # Conda environment specification
+├── data/                               # BigWig files
+│   ├── 3d7_rep1.Plasmodium.INPUTcorrect.bin100bp.RPGC.bw
+│   ├── 3d7_rep1.Plasmodium.UDNAIPcorrect.bin100bp.RPGC.bw
+│   ├── 3d7_rep2.Plasmodium.INPUT.bin100bp.RPGC.bw
+│   ├── 3d7_rep2.Plasmodium.UDNAIP.bin100bp.RPGC.bw
+│   ├── DMSO.INPUT.bin100bp.RPGC.bw
+│   ├── DMSO.UDNAIP.bin100bp.RPGC.bw
+│   ├── RAPA.INPUT.bin100bp.RPGC.bw
+│   └── RAPA.UDNAIP.bin100bp.RPGC.bw
+└── pca_analysis/                       # PCA analysis notebook and outputs
+    ├── pca_analysis.ipynb              # Main analysis notebook
+    ├── pca_plot.png                    # 2D PCA plot (300 DPI)
+    ├── pca_plot.pdf                    # 2D PCA plot (vector format)
+    └── pca_results.csv                 # PCA scores for all samples
 ```
