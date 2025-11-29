@@ -2,6 +2,8 @@
 
 This analysis performs Principal Component Analysis (PCA) on bigwig files to compare INPUT and UDNAIP conditions across different experiments (3d7_rep1, 3d7_rep2, DMSO, RAPA).
 
+For detailed methodology, design decisions, and development history, see [`METHODOLOGY.md`](METHODOLOGY.md).
+
 ## Prerequisites
 
 - Conda/Miniconda installed
