@@ -6,12 +6,11 @@
     
     ```bash
     multiBigwigSummary bins \
-     -b ./0421.Plasmodium.MAPQfiltered.IPvsINPUT.correct.log2.bw \
-    ./0815.Plasmodium.MAPQfiltered.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K4me3.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K9ac.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K9me3.IPvsINPUT.log2.bw \
-    --labels 1st_UDNASeq 2nd_UDNASeq H3K4me3 H3K9ac H3K4me3 \
+    -b data/log2_bw/3d7_rep1.MAPQfiltered.IPvsINPUT.bin100bp.log2.bw \
+    data/log2_bw/3d7_rep2.MAPQfiltered.IPvsINPUT.bin100bp.log2.bw \
+    data/log2_bw/RAPA.MAPQfiltered.IPvsINPUT.bin100bp.log2.bw \
+    data/log2_bw/DMSO.MAPQfiltered.IPvsINPUT.bin100bp.log2.bw \
+    --labels 3d7_rep1 3d7_rep2 DMSO RAPA \
     --binSize 100 \
     --numberOfProcessors "max" -o heatmap_data.npz
     ```
@@ -20,11 +19,11 @@
     
     ```bash
     multiBigwigSummary BED-file \
-     -b bw_1bp/ \
+    -b data/log2_bw/ \
     --labels 3d7_rep1 3d7_rep2 DMSO RAPA \
     --binSize 10 \
     --numberOfProcessors "max" -o var_bin10bp_heatmap.npz \
-    --BED ../../BED_files/var_genes/var_genes.bed
+    --BED data/BED_files/var_genes/var_genes.bed
     ```
     
     or
@@ -40,13 +39,9 @@
     or along Bed files
     
     ```bash
-    multiBigwigSummary BED-file --BED ../Refgen/PlasmoDB-57_Pfalciparum3D7.gff \
-    -b ./0421.Plasmodium.MAPQfiltered.IPvsINPUT.correct.log2.bw \
-    ./0815.Plasmodium.MAPQfiltered.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K4me3.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K9ac.IPvsINPUT.log2.bw \
-    ./PlasmodiumH3K9me3.IPvsINPUT.log2.bw \
-    --labels 1st_UDNASeq 2nd_UDNASeq H3K4me3 H3K9ac H3K4me3 \
+    multiBigwigSummary BED-file --BED data/Refgen/PlasmoDB-57_Pfalciparum3D7.gff \
+    -b data/log2_bw/ \
+    --labels 3d7_rep1 3d7_rep2 DMSO RAPA \
     --binSize 100 \
     --numberOfProcessors "max" -o heatmap_data.npz
     ```
