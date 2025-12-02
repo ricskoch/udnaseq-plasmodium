@@ -1,7 +1,0 @@
-"0","g4_distance_merged_0p5 %>% "
-"0","  distinct(G4_size, .keep_all = TRUE) %>% "
-"0","  ggplot()+"
-"0","  geom_point(mapping = aes(x = G4_size, y = G4H_abs))+"
-"0","  coord_cartesian(ylim = c(0.5,3))+"
-"0","  xlab(""G4Hunter prediction score"")+"
-"0","  ylab(""G4 size (bp)"")"
