@@ -1,0 +1,128 @@
+ ### To activate the chromosomal structure variation analysis, first create a conda environment with conda installation as follows:
+
+## Download the latest Anaconda .sh file:
+
+bash Anaconda3-2022.10-Linux-x86_64.sh
+
+## Follow the onscript instruction and reset the terminal by closing and opening again, then:
+
+conda list 			# Checks the installation of packages
+conda init fish			# Initialize fish shell
+conda update conda		# Update packages in conda
+
+## To add bioconda channel:
+
+conda config --add channels bioconda
+
+## Generate the environment for your task:
+
+conda create -n structural
+conda activate structural
+
+## Install delly and wally:
+
+conda install delly
+conda install wally
+
+## Structural variation call on short-read paired-end sequence data (https://bpa-csiro-workshops.github.io/btp-manuals-md/modules/cancer-module-sv/sv_tut/)
+
+delly call -g Refgen/PlasmoDB-57_Pfalciparum3D7_Genome.fasta 0815.Plasmodium.INPUT.MAPQfiltered.dedup_deleted.bam > 3d7.structural.rearrangement.vcf
+
+delly call -t BND -g Refgen/PlasmoDB-57_Pfalciparum3D7_Genome.fasta 0815.Plasmodium.INPUT.MAPQfiltered.dedup_deleted.bam > 3d7.interchrom.vcf
+
+## bcf/vcf - variation call form can be used in IGV to check locations
+
+__________________________________
+
+### Visulization using Circos in Rstudio
+
+## Circos requires the following: cytoband file for the chromosome information
+## Cytoband format:
+chrom	chromStart	chromEnd	name	gieStain
+
+# Import cytoband from cytoband file as read.delim, then you can start plotting with the following commands (useful: https://jokergoo.github.io/circlize_book/book/initialize-genomic-plot.html)
+
+circos.clear()
+circos.par('start.degree' = 90)
+circos.par('gap.degree' = 2)
+circos.initializeWithIdeogram(cytoband = pfa3d7_cytoband, chromosome.index = paste('Pf3D7_', sprintf("%02d", c(1:14)), '_v3', sep = '')  , plotType = NULL)
+circos.track(ylim = c(0, 1), panel.fun = function(x, y) {
+     chr = CELL_META$sector.index
+     xlim = CELL_META$xlim
+     ylim = CELL_META$ylim
+     circos.rect(xlim[1], 0, xlim[2], 1, col = 'black')
+     circos.text(mean(xlim), mean(ylim), chr, cex = 0.7, col = "white",
+                 facing = "inside", niceFacing = TRUE)
+ }, track.height = 0.15, bg.border = NA)
+
+# After having an ideogram, we need to add the tracks generated with Delly, but vcf need to be formated first to be readable
+
+sv = read.table('~/Documents/Plasmodium_NGS/structural_rearrangement/3d7.structual.rearrangement.vcf')
+
+## To plot deletion, inversion and insertion data use the following
+
+chrEnd=NULL
+posEnd=NULL
+for (i in 1:dim(sv)[1]) {
+    addInfo=strsplit(as.character(sv[i,8]),split=";")
+    chrInf=strsplit(addInfo[[1]][3],split="=")
+    chrEnd=c(chrEnd,chrInf[[1]][2])
+    posInf=strsplit(addInfo[[1]][4],split="=")
+    posEnd=c(posEnd,posInf[[1]][2])
+}
+svTable=data.frame(sv[,1], as.numeric(sv[,2]), as.numeric(posEnd), chrEnd, as.character(sv[,5]))
+
+
+typeE=c("<DEL>","<INS>","<INV>")
+colE=c("blue","black","green")
+for (i in 1:3) {
+    bed_list=svTable[svTable[,5]==typeE[i],]
+    circos.genomicTrackPlotRegion(bed_list, stack=TRUE, panel.fun = function(region, value, ...) {
+        circos.genomicPoints(region, value, cex = 0.5, pch = 16, col = colE[i], ...)
+    })
+}
+
+title("Structural variants")
+legend(1,1,legend=c("SV-DELETION","SV-INSERTION","SV-INVERSION"),col=c("blue","black","green"),pch=c(16,16,16,16),cex=0.75,title="Tracks:",bty='n')
+
+## To present interchromosomal rearrangements use the following:
+
+chrStart = NULL
+chrEnd = NULL
+posStart = NULL
+posEnd = NULL
+
+for (i in 1:dim(tra)[1]) {
+	traInfo = strsplit(as.character(tra[i,8]), split = ";")
+	if (tra[i, 7] == 'PASS') {
+		chrInfEnd = strsplit(as.character(traInfo[[1]][5]), split="=")
+		chrEnd = c(chrEnd, chrInfEnd[[1]][2])
+		posInfEnd = strsplit(as.character(traInfo[[1]][6]), split="=")
+		posEnd = c(posEnd, posInfEnd[[1]][2])
+		chrStart = c(chrStart, tra[i,1])
+		posStart = c(posStart, tra[i,2])
+		}
+}
+traTable = data.frame(chrStart, as.numeric(posStart), chrEnd, as.numeric(posEnd))
+
+
+## circos.link requires the section (i.e. chromosome name) and the location (loci) for the start and end positions respectively
+## If the location is a two-value vector then it is going to be a belt
+
+for (i in 1:dim(traTable)[1]) {
+    circos.link(traTable[i,1],traTable[i,2],traTable[i,3],traTable[i,4])
+}
+
+## 
+
+circos.genomicTrack(var_genes, ylim = c(0, 1), panel.fun = function(region, value, ...) {
+    circos.genomicRect(region, ytop = 1, ybottom = 0, col = 'blue')
+}, bg.border = NA)
+
+circos.genomicTrack(`0815.Plasmodium.MAPQfiltered.IPvsINPUT.log2.scaled`, ylim = c(-1,1), numeric.column = 4, panel.fun = function(region, value, ...) {
+    circos.genomicLines(region, value, col = 'red')
+    circos.genomicAxis(h = "bottom")
+    circos.genomicLines(region, value = mean(CELL_META$ylim))
+    circos.genomicLines(region, value = min(CELL_META$ylim))
+    circos.genomicLines(region, value = max(CELL_META$ylim))
+}, bg.border = NA, track.height = 0.5)

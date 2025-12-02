@@ -1,0 +1,50 @@
+library(ggplot2)
+library(dplyr)
+
+GCcontent <- ggplot(data = merged_blacklisted_GCcontent, mapping = aes(x = V5, y = V4))+
+  geom_jitter(mapping = aes(color = case_when(
+                              V5 > 0.4 & V4 > 0 ~ "green2",
+                              V5 > 0.4 & V4 < 0 ~ "red2",
+                              V4 > 0 ~ "green4",
+                              V4 < 0 ~ "red4",
+                              TRUE ~ "black"
+  )))+
+  geom_smooth(method = "lm", se = FALSE, color = "black", formula = y ~ x)+
+  geom_text(aes(x = max(V5), y = max(V4), label = paste("Correlation =", round(cor(V5, V4), 2))),
+            hjust = 1, vjust = 1) +
+  scale_color_identity()+
+  theme_minimal()+
+  coord_cartesian(ylim=c(-0.2,1))+
+  labs(x = "GC%", y = "log2(U-enrichment)")
+GCcontent
+ggsave("GCcontent.svg")
+
+GCcontent <- ggplot(data = merged_blacklisted_GCcontent, mapping = aes(x = V5, y = V4, color = V5 + V4))+
+  geom_jitter()+
+  scale_colour_continuous(type = "viridis")+
+  geom_smooth(method = "lm", se = FALSE, color = "black", formula = y ~ x)+
+  theme_minimal()+
+  coord_cartesian(ylim=c(-0.2,1))+
+  labs(x = "GC%", y = "log2(U-enrichment)")
+GCcontent
+ggsave("GCcontent.svg", width = 8, height = 8, dpi = 300)
+
+# Correlation analysis using imported table columns
+
+cor(merged_blacklisted_GCcontent$V4, merged_blacklisted_GCcontent$V5, method = 'pearson')
+cor(merged_blacklisted_GCcontent$V4, merged_blacklisted_GCcontent$V5, method = 'spearman')
+
+# Plotting the dataset
+
+plot(merged_blacklisted_GCcontent$V5, merged_blacklisted_GCcontent$V4, 
+     xlim = c(0, 0.8), 
+     ylim = c(-2, 2), 
+     xlab = 'GC%', 
+     ylab = 'log2 U enrichment', 
+     main = 'Correlation between GC% and U-enrichment')
+
+# Draw correlation line
+
+abline(lm(merged_blacklisted_GCcontent$V4 ~ merged_blacklisted_GCcontent$V5), 
+       col = 'red', 
+       lwd = 3)

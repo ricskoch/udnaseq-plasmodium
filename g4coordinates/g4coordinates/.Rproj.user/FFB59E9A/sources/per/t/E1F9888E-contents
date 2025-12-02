@@ -1,0 +1,144 @@
+---
+title: "G4-U-enrichment analysis"
+author: "Richard Izrael"
+date: "2024-02-09"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Introduction
+
+G4-sites are enriched in var genes, and the connection between uracilation and G4 site formation seems a reasonable link for active uracilation.
+
+```{r data preparation}
+library(tidyverse)
+
+g4_distance_merged_0p5 <- read.csv("nooverlap_distance_merged_10bp.bed", sep = "\t",
+                                   header = FALSE)
+colnames(g4_distance_merged_0p5) <- c("chr_U", "start_U", "end_U", "log2U", 
+                                      "chr_G4", "start_G4", "end_G4", "G4H", "distance")
+IP.vs.INPUT.merged.log2.bin10bp <-  read.csv("IP.vs.INPUT.merged.log2.bin10bp.bedGraph", sep = "\t",
+                                             header = FALSE)
+colnames(IP.vs.INPUT.merged.log2.bin10bp) <- c("chr", "start", "end", "log2U")
+
+merged_above_0p5_bin10bp <- subset(IP.vs.INPUT.merged.log2.bin10bp,
+                                   IP.vs.INPUT.merged.log2.bin10bp[,4] > 0.5)
+
+write.table(x = merged_above_0p5_bin10bp, file = "../../../Merged/bin10bp/merged_above_0p5_bin10bp.bed", 
+            row.names = FALSE, col.names = FALSE, sep = "\t", quote = FALSE)
+
+# Calculate G4_size
+g4_distance_merged_0p5 <- mutate(g4_distance_merged_0p5, G4_size = end_G4 - start_G4)
+
+# Categorization based on G4Hunter threshold score for later visualization
+g4_distance_merged_0p5 <- mutate(g4_distance_merged_0p5, G4H_abs = abs(G4H))
+
+# Filtering of the data based on categories in the Ana article
+g4_distance_merged_0p5 <- mutate(g4_distance_merged_0p5, 
+                                 filter = ifelse(G4H_abs >= 1.75, "1.75",
+                                                 ifelse(G4H_abs >= 1.5, "1.5", 
+                                                        ifelse(G4H_abs >= 1.2, "1.2", "Unfiltered"))))
+```
+
+## U-enrichment overview
+
+I wanted to check the distribution of the log2(U-enrichment) values across the chromosomes. This includes the entire 14 chromosome, with telomeres.
+
+```{r U-distribution, echo=FALSE}
+u_enrichment_distribution <- IP.vs.INPUT.merged.log2.bin10bp %>% 
+  filter(chr != "Pf3D7_MIT_v3" & chr != "Pf3D7_API_v3") %>% 
+  ggplot(mapping = aes(x = log2U))+
+  geom_histogram(mapping = aes(fill = chr, color = "black"), 
+                 binwidth = 0.05, show.legend = FALSE)+
+  scale_fill_discrete()+
+  scale_color_manual(values = c("black"))+
+  geom_vline(xintercept = 0, color = "red", linetype = "dotted", linewidth = 0.5)+
+  coord_cartesian(xlim = c(-1, 1))+
+  theme_bw(base_size = 10)+
+  xlab("log2(U-enrichment)")+
+  ylab("Count")+
+  facet_wrap(~chr, nrow = 2)
+u_enrichment_distribution
+```
+
+## G4 score and size distribution
+
+```{r g4_score_distribution}
+g4_prediction_hist <- ggplot(g4_distance_merged_0p5)+
+  geom_density(mapping = aes(x = G4H, 
+               fill = ifelse(G4H > 0, "green", "red3"), color = "grey50"), show.legend = FALSE)+
+  xlab("G4 prediction score")+
+  ylab("Density")+
+  scale_fill_manual(values = c("green3", "red3"))+
+  scale_color_manual(values = c("grey20"))+
+  theme_bw()+
+  scale_x_continuous(breaks = seq(-3, 3, by = 1),
+                     minor_breaks = seq(-3, 3, by = 0.5))
+g4_prediction_hist
+```
+
+```{r g4_size_filtered}
+g4_distance_merged_0p5 %>% 
+  ggplot()+
+  geom_boxplot(mapping = aes(y = G4_size, color = filter), show.legend = FALSE)+
+  scale_y_log10()+
+  theme_bw()+
+  facet_wrap(~filter, nrow = 1)
+
+```
+
+Based on the fraction of G4 sites per size, 80% of the predicted G4 are less than 200 bp, hence it looks like a good arbitrary threshold.
+
+```{r density function of g4 size}
+ggplot(g4_distance_merged_0p5, mapping = aes(x = G4_size)) +
+  stat_ecdf(geom = "step", color = "blue") +
+  stat_density(mapping = aes(y = ..scaled..), geom = "line", color = "red")+
+  theme_bw() +
+  geom_vline(xintercept = 200) +
+  xlab("Predicted G4 size range (bp)") +
+  ylab("Fraction")
+```
+
+Connection between G4 size and G4Hunter score also suggests that lower size have the vast majority of higher scored G4 sites.
+
+```{r}
+g4_distance_merged_0p5 %>% 
+  distinct(G4_size, .keep_all = TRUE) %>% 
+  ggplot()+
+  geom_point(mapping = aes(x = G4_size, y = G4H_abs))+
+  coord_cartesian(ylim = c(0.5,3))+
+  xlab("G4Hunter prediction score")+
+  ylab("G4 size (bp)")
+```
+
+## Connection between U-enrichment and G4
+
+I plotted the histogram by filtering for G4Hunter score above 1.2 and only G4 sites that are smaller than 200 bps. I used a binwidth of 30, as the mean size of G4 is approximately around 30, therefor it is not biased towards under sampling.
+
+```{r g4 distance in most uracilated regions}
+g4_distance_merged_0p5 %>% 
+  filter(G4H_abs > 1.2) %>% 
+  filter(G4_size <= 200) %>% 
+  summarize(mean_size = round(mean(G4_size), digits = 2), 
+            median_size = median(G4_size))
+
+g4_distance_merged_0p5 %>% 
+  filter(G4H_abs > 1.2) %>% 
+  filter(G4_size <= 200) %>% 
+  ggplot(aes(x = distance))+
+  geom_histogram(fill = "grey50", binwidth = 30, color = "white", linewidth = 0.1)+
+  theme_bw()+
+  coord_cartesian(xlim = c(-1000, 1000), 
+                  ylim = c(0, 500))+
+  xlab("Distance to closest G4-coordinates (bp)")+
+  ylab("Count")+
+  theme(axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10),
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14))+
+  scale_x_continuous(breaks = seq(-1000, 1000, by = 200), 
+                     minor_breaks = seq(-900, 900, by = 200))+
+  scale_y_continuous(breaks = seq(0, 500, by = 100), 
+                     minor_breaks = seq(0, 800, by = 25))
+```
