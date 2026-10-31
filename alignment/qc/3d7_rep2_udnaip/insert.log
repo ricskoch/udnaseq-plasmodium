@@ -1,0 +1,40 @@
+/tmp/mm/root/envs/udna/bin/picard: line 5: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=39167 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+INFO	2026-10-31 13:50:33	RExecutor	Executing R script via command: Rscript /tmp/script13074188548945447293.R
+ERROR	2026-10-31 13:50:34	ProcessExecutor	During startup - Warning messages:
+ERROR	2026-10-31 13:50:34	ProcessExecutor	1: Setting LC_CTYPE failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	2: Setting LC_COLLATE failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	3: Setting LC_TIME failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	4: Setting LC_MESSAGES failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	5: Setting LC_MONETARY failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	6: Setting LC_PAPER failed, using "C" 
+ERROR	2026-10-31 13:50:34	ProcessExecutor	7: Setting LC_MEASUREMENT failed, using "C" 
+INFO	2026-10-31 13:50:34	ProcessExecutor	[1] "Checking if R is installed"
+13:50:34.254 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.intel.gkl.NativeLibraryLoader in an unnamed module (file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+[Sat Oct 31 13:50:34 UTC 2026] CollectInsertSizeMetrics --Histogram_FILE /home/user/udnaseq-plasmodium/alignment/qc/3d7_rep2_udnaip/insert_size_hist.pdf --INPUT /tmp/udna_work/3d7_rep2_udnaip/dedup.bam --OUTPUT /home/user/udnaseq-plasmodium/alignment/qc/3d7_rep2_udnaip/insert_size_metrics.txt --VALIDATION_STRINGENCY SILENT --DEVIATIONS 10.0 --MINIMUM_PCT 0.05 --METRIC_ACCUMULATION_LEVEL ALL_READS --INCLUDE_DUPLICATES false --ASSUME_SORTED true --STOP_AFTER 0 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 5 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sat Oct 31 13:50:34 UTC 2026] Executing as root@vm on Linux 6.18.44-fc-v185 amd64; OpenJDK 64-Bit Server VM 25.0.2-internal-adhoc.rattler.src; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:3.5.0
+INFO	2026-10-31 13:50:35	SinglePassSamProgram	Processed     1,000,000 records.  Elapsed time: 00:00:01s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_04_v3:381,588
+INFO	2026-10-31 13:50:36	SinglePassSamProgram	Processed     2,000,000 records.  Elapsed time: 00:00:02s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_06_v3:899,214
+INFO	2026-10-31 13:50:37	SinglePassSamProgram	Processed     3,000,000 records.  Elapsed time: 00:00:03s.  Time for last 1,000,000:    0s.  Last read position: Pf3D7_08_v3:1,135,433
+INFO	2026-10-31 13:50:38	SinglePassSamProgram	Processed     4,000,000 records.  Elapsed time: 00:00:04s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_10_v3:1,430,166
+INFO	2026-10-31 13:50:39	SinglePassSamProgram	Processed     5,000,000 records.  Elapsed time: 00:00:05s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_12_v3:965,818
+INFO	2026-10-31 13:50:40	SinglePassSamProgram	Processed     6,000,000 records.  Elapsed time: 00:00:06s.  Time for last 1,000,000:    0s.  Last read position: Pf3D7_13_v3:1,939,933
+INFO	2026-10-31 13:50:41	SinglePassSamProgram	Processed     7,000,000 records.  Elapsed time: 00:00:07s.  Time for last 1,000,000:    0s.  Last read position: Pf3D7_14_v3:2,395,940
+INFO	2026-10-31 13:50:42	RExecutor	Executing R script via command: Rscript /tmp/script5984884150240388806.R /home/user/udnaseq-plasmodium/alignment/qc/3d7_rep2_udnaip/insert_size_metrics.txt /home/user/udnaseq-plasmodium/alignment/qc/3d7_rep2_udnaip/insert_size_hist.pdf dedup.bam
+ERROR	2026-10-31 13:50:42	ProcessExecutor	During startup - Warning messages:
+ERROR	2026-10-31 13:50:42	ProcessExecutor	1: Setting LC_CTYPE failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	2: Setting LC_COLLATE failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	3: Setting LC_TIME failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	4: Setting LC_MESSAGES failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	5: Setting LC_MONETARY failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	6: Setting LC_PAPER failed, using "C" 
+ERROR	2026-10-31 13:50:42	ProcessExecutor	7: Setting LC_MEASUREMENT failed, using "C" 
+INFO	2026-10-31 13:50:42	ProcessExecutor	null device 
+INFO	2026-10-31 13:50:42	ProcessExecutor	          1 
+[Sat Oct 31 13:50:42 UTC 2026] picard.analysis.CollectInsertSizeMetrics done. Elapsed time: 0.14 minutes.
+Runtime.totalMemory()=538968064

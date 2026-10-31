@@ -1,0 +1,50 @@
+Adapter auto-detection is disabled for STDIN mode
+Streaming uncompressed interleaved reads to STDOUT...
+Enable interleaved output mode for paired-end input.
+
+Read1 before filtering:
+total reads: 20317860
+total bases: 3061908135
+Q20 bases: 2970611765(97.0183%)
+Q30 bases: 2837657857(92.6761%)
+Q40 bases: 0(0%)
+
+Read2 before filtering:
+total reads: 20317860
+total bases: 3062918833
+Q20 bases: 2932771435(95.7509%)
+Q30 bases: 2756133616(89.9839%)
+Q40 bases: 0(0%)
+
+Read1 after filtering:
+total reads: 20317860
+total bases: 2916049143
+Q20 bases: 2834513915(97.2039%)
+Q30 bases: 2711299374(92.9785%)
+Q40 bases: 0(0%)
+
+Read2 after filtering:
+total reads: 20317860
+total bases: 2916168100
+Q20 bases: 2796405228(95.8931%)
+Q30 bases: 2632285505(90.2652%)
+Q40 bases: 0(0%)
+
+Filtering result:
+reads passed filter: 40635720
+reads failed due to low quality: 0
+reads failed due to too many N: 0
+reads failed due to too short: 0
+reads failed due to adapter dimer: 0
+reads with adapter trimmed: 10069128
+bases trimmed due to adapters: 292609725
+
+Duplication rate: 4.16085%
+
+Insert size peak (evaluated by paired-end reads): 156
+
+JSON report: /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/fastp.json
+HTML report: /dev/null
+
+fastp --stdin --interleaved_in --stdout --detect_adapter_for_pe --disable_quality_filtering --length_required 30 -w 4 -j /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/fastp.json -h /dev/null 
+fastp v1.4.0, time used: 1518 seconds

@@ -1,0 +1,70 @@
+/tmp/mm/root/envs/udna/bin/picard: line 5: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=39167 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+INFO	2026-10-31 20:41:24	RExecutor	Executing R script via command: Rscript /tmp/script2211111490094078353.R
+ERROR	2026-10-31 20:41:24	ProcessExecutor	During startup - Warning messages:
+ERROR	2026-10-31 20:41:24	ProcessExecutor	1: Setting LC_CTYPE failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	2: Setting LC_COLLATE failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	3: Setting LC_TIME failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	4: Setting LC_MESSAGES failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	5: Setting LC_MONETARY failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	6: Setting LC_PAPER failed, using "C" 
+ERROR	2026-10-31 20:41:24	ProcessExecutor	7: Setting LC_MEASUREMENT failed, using "C" 
+INFO	2026-10-31 20:41:24	ProcessExecutor	[1] "Checking if R is installed"
+20:41:24.973 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.intel.gkl.NativeLibraryLoader in an unnamed module (file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+[Sat Oct 31 20:41:24 UTC 2026] CollectGcBiasMetrics --CHART_OUTPUT /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias.pdf --SUMMARY_OUTPUT /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias_summary.txt --INPUT /tmp/udna_work/RAPA_udnaip/dedup.bam --OUTPUT /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias_metrics.txt --VALIDATION_STRINGENCY SILENT --REFERENCE_SEQUENCE /tmp/udna_work/ref/genome.fa --SCAN_WINDOW_SIZE 100 --MINIMUM_GENOME_FRACTION 1.0E-5 --IS_BISULFITE_SEQUENCED false --METRIC_ACCUMULATION_LEVEL ALL_READS --ALSO_IGNORE_DUPLICATES false --ASSUME_SORTED true --STOP_AFTER 0 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 5 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sat Oct 31 20:41:25 UTC 2026] Executing as root@vm on Linux 6.18.44-fc-v185 amd64; OpenJDK 64-Bit Server VM 25.0.2-internal-adhoc.rattler.src; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:3.5.0
+INFO	2026-10-31 20:41:27	SinglePassSamProgram	Processed     1,000,000 records.  Elapsed time: 00:00:01s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_01_v3:625,089
+INFO	2026-10-31 20:41:28	SinglePassSamProgram	Processed     2,000,000 records.  Elapsed time: 00:00:03s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_02_v3:731,507
+INFO	2026-10-31 20:41:29	SinglePassSamProgram	Processed     3,000,000 records.  Elapsed time: 00:00:04s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_03_v3:348,387
+INFO	2026-10-31 20:41:31	SinglePassSamProgram	Processed     4,000,000 records.  Elapsed time: 00:00:05s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_03_v3:1,033,729
+INFO	2026-10-31 20:41:32	SinglePassSamProgram	Processed     5,000,000 records.  Elapsed time: 00:00:06s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_04_v3:500,535
+INFO	2026-10-31 20:41:33	SinglePassSamProgram	Processed     6,000,000 records.  Elapsed time: 00:00:08s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_04_v3:1,101,680
+INFO	2026-10-31 20:41:34	SinglePassSamProgram	Processed     7,000,000 records.  Elapsed time: 00:00:09s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_05_v3:504,192
+INFO	2026-10-31 20:41:36	SinglePassSamProgram	Processed     8,000,000 records.  Elapsed time: 00:00:10s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_05_v3:1,238,882
+INFO	2026-10-31 20:41:37	SinglePassSamProgram	Processed     9,000,000 records.  Elapsed time: 00:00:12s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_06_v3:547,455
+INFO	2026-10-31 20:41:38	SinglePassSamProgram	Processed    10,000,000 records.  Elapsed time: 00:00:13s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_06_v3:1,235,801
+INFO	2026-10-31 20:41:40	SinglePassSamProgram	Processed    11,000,000 records.  Elapsed time: 00:00:14s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_07_v3:382,887
+INFO	2026-10-31 20:41:41	SinglePassSamProgram	Processed    12,000,000 records.  Elapsed time: 00:00:15s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_07_v3:977,698
+INFO	2026-10-31 20:41:42	SinglePassSamProgram	Processed    13,000,000 records.  Elapsed time: 00:00:17s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_08_v3:137,259
+INFO	2026-10-31 20:41:43	SinglePassSamProgram	Processed    14,000,000 records.  Elapsed time: 00:00:18s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_08_v3:811,019
+INFO	2026-10-31 20:41:45	SinglePassSamProgram	Processed    15,000,000 records.  Elapsed time: 00:00:19s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_09_v3:30,361
+INFO	2026-10-31 20:41:46	SinglePassSamProgram	Processed    16,000,000 records.  Elapsed time: 00:00:21s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_09_v3:796,200
+INFO	2026-10-31 20:41:48	SinglePassSamProgram	Processed    17,000,000 records.  Elapsed time: 00:00:22s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_10_v3:13,383
+INFO	2026-10-31 20:41:49	SinglePassSamProgram	Processed    18,000,000 records.  Elapsed time: 00:00:23s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_10_v3:709,619
+INFO	2026-10-31 20:41:50	SinglePassSamProgram	Processed    19,000,000 records.  Elapsed time: 00:00:25s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_10_v3:1,398,419
+INFO	2026-10-31 20:41:52	SinglePassSamProgram	Processed    20,000,000 records.  Elapsed time: 00:00:26s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_11_v3:52,987
+INFO	2026-10-31 20:41:53	SinglePassSamProgram	Processed    21,000,000 records.  Elapsed time: 00:00:27s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_11_v3:810,719
+INFO	2026-10-31 20:41:54	SinglePassSamProgram	Processed    22,000,000 records.  Elapsed time: 00:00:29s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_11_v3:1,544,979
+INFO	2026-10-31 20:41:55	SinglePassSamProgram	Processed    23,000,000 records.  Elapsed time: 00:00:30s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_12_v3:128,681
+INFO	2026-10-31 20:41:57	SinglePassSamProgram	Processed    24,000,000 records.  Elapsed time: 00:00:31s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_12_v3:850,808
+INFO	2026-10-31 20:41:58	SinglePassSamProgram	Processed    25,000,000 records.  Elapsed time: 00:00:33s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_12_v3:1,524,257
+INFO	2026-10-31 20:41:59	SinglePassSamProgram	Processed    26,000,000 records.  Elapsed time: 00:00:34s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_12_v3:2,237,014
+INFO	2026-10-31 20:42:00	SinglePassSamProgram	Processed    27,000,000 records.  Elapsed time: 00:00:35s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_13_v3:775,717
+INFO	2026-10-31 20:42:02	SinglePassSamProgram	Processed    28,000,000 records.  Elapsed time: 00:00:36s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_13_v3:1,474,910
+INFO	2026-10-31 20:42:03	SinglePassSamProgram	Processed    29,000,000 records.  Elapsed time: 00:00:37s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_13_v3:2,249,687
+INFO	2026-10-31 20:42:04	SinglePassSamProgram	Processed    30,000,000 records.  Elapsed time: 00:00:39s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_14_v3:1,782
+INFO	2026-10-31 20:42:05	SinglePassSamProgram	Processed    31,000,000 records.  Elapsed time: 00:00:40s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_14_v3:771,541
+INFO	2026-10-31 20:42:07	SinglePassSamProgram	Processed    32,000,000 records.  Elapsed time: 00:00:41s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_14_v3:1,489,412
+INFO	2026-10-31 20:42:08	SinglePassSamProgram	Processed    33,000,000 records.  Elapsed time: 00:00:43s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_14_v3:2,239,516
+INFO	2026-10-31 20:42:09	SinglePassSamProgram	Processed    34,000,000 records.  Elapsed time: 00:00:44s.  Time for last 1,000,000:    1s.  Last read position: Pf3D7_14_v3:3,007,522
+INFO	2026-10-31 20:42:10	SinglePassSamProgram	Processed    35,000,000 records.  Elapsed time: 00:00:45s.  Time for last 1,000,000:    1s.  Last read position: */*
+INFO	2026-10-31 20:42:11	SinglePassSamProgram	Processed    36,000,000 records.  Elapsed time: 00:00:46s.  Time for last 1,000,000:    0s.  Last read position: */*
+INFO	2026-10-31 20:42:12	SinglePassSamProgram	Processed    37,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    0s.  Last read position: */*
+INFO	2026-10-31 20:42:13	SinglePassSamProgram	Processed    38,000,000 records.  Elapsed time: 00:00:48s.  Time for last 1,000,000:    0s.  Last read position: */*
+INFO	2026-10-31 20:42:13	RExecutor	Executing R script via command: Rscript /tmp/script16826763503826267291.R /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias_metrics.txt /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias_summary.txt /home/user/udnaseq-plasmodium/alignment/qc/RAPA_udnaip/gc_bias.pdf 100
+ERROR	2026-10-31 20:42:13	ProcessExecutor	During startup - Warning messages:
+ERROR	2026-10-31 20:42:13	ProcessExecutor	1: Setting LC_CTYPE failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	2: Setting LC_COLLATE failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	3: Setting LC_TIME failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	4: Setting LC_MESSAGES failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	5: Setting LC_MONETARY failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	6: Setting LC_PAPER failed, using "C" 
+ERROR	2026-10-31 20:42:13	ProcessExecutor	7: Setting LC_MEASUREMENT failed, using "C" 
+INFO	2026-10-31 20:42:14	ProcessExecutor	Total clusters:  18995636 , Aligned reads:  34822967
+[Sat Oct 31 20:42:14 UTC 2026] picard.analysis.CollectGcBiasMetrics done. Elapsed time: 0.82 minutes.
+Runtime.totalMemory()=538968064

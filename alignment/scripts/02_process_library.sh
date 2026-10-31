@@ -17,7 +17,8 @@ EGS=$(awk '!/^>/{n+=gsub(/[ACGTacgt]/,"")}END{print n}' "$REF_FA")   # non-N bas
 # 2+3. stream SRA -> adapter trimming -> bwa mem -> coordinate sort, with no FASTQ on disk
 # (raw FASTQ would be ~20 GB for the largest library). fastp does adapter trimming only (no
 # quality filter, min length 30). bwa mem with default parameters, as in the GEO methods.
-fasterq-dump "$WORK/sra/$SRR/$SRR.sra" --stdout --split-spot -e "$THREADS" -t "$D" 2> "$Q/fasterq.log" \
+# fastq-dump -Z streams without temp files (fasterq-dump needs ~FASTQ-sized scratch, even with --stdout)
+fastq-dump -Z --split-spot "$WORK/sra/$SRR/$SRR.sra" 2> "$Q/fastqdump.log" \
  | fastp --stdin --interleaved_in --stdout --detect_adapter_for_pe --disable_quality_filtering \
          --length_required 30 -w "$THREADS" -j "$Q/fastp.json" -h /dev/null 2> "$Q/fastp.log" \
  | bwa mem -p -t "$THREADS" -R "@RG\tID:$LIB\tSM:$LIB\tPL:ILLUMINA" "$GENOME" - 2> "$Q/bwa.log" \
@@ -50,3 +51,7 @@ picard CollectGcBiasMetrics -I "$D/dedup.bam" -R "$GENOME" -O "$Q/gc_bias_metric
     -S "$Q/gc_bias_summary.txt" --VALIDATION_STRINGENCY SILENT 2> "$Q/gcbias.log"
 samtools idxstats "$D/dedup.bam" > "$Q/idxstats_dedup.txt"
 echo "$LIB done; EGS=$EGS"
+
+# 7. keep only bigWigs + QC; BAMs are large and regenerable (set KEEP_BAM=1 to retain)
+mkdir -p "$WORK/bigwig"; cp "$D"/*.bw "$WORK/bigwig/"
+if [ "${KEEP_BAM:-0}" != "1" ]; then rm -f "$D"/*.bam "$D"/*.bai "$D"/*.bam.bai; fi

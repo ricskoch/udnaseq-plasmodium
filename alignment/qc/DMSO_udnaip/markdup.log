@@ -1,0 +1,107 @@
+/tmp/mm/root/envs/udna/bin/picard: line 5: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=39167 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+18:59:55.072 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.intel.gkl.NativeLibraryLoader in an unnamed module (file:/tmp/mm/root/envs/udna/share/picard-3.5.0-0/picard.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+[Sat Oct 31 18:59:55 UTC 2026] MarkDuplicates --INPUT /tmp/udna_work/DMSO_udnaip/aligned.bam --OUTPUT /tmp/udna_work/DMSO_udnaip/dedup.bam --METRICS_FILE /home/user/udnaseq-plasmodium/alignment/qc/DMSO_udnaip/markdup_metrics.txt --REMOVE_DUPLICATES true --ASSUME_SORTED true --VALIDATION_STRINGENCY SILENT --CREATE_INDEX true --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --SORTING_COLLECTION_SIZE_RATIO 0.25 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --DUPLEX_UMI false --FLOW_MODE false --FLOW_DUP_STRATEGY FLOW_QUALITY_SUM_STRATEGY --FLOW_USE_END_IN_UNPAIRED_READS false --FLOW_USE_UNPAIRED_CLIPPED_END false --FLOW_UNPAIRED_END_UNCERTAINTY 0 --FLOW_UNPAIRED_START_UNCERTAINTY 0 --FLOW_SKIP_FIRST_N_FLOWS 0 --FLOW_Q_IS_KNOWN_END false --FLOW_EFFECTIVE_QUALITY_THRESHOLD 15 --ADD_PG_TAG_TO_READS true --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 5 --MAX_RECORDS_IN_RAM 500000 --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sat Oct 31 18:59:55 UTC 2026] Executing as root@vm on Linux 6.18.44-fc-v185 amd64; OpenJDK 64-Bit Server VM 25.0.2-internal-adhoc.rattler.src; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:3.5.0
+INFO	2026-10-31 18:59:55	MarkDuplicates	Start of doWork freeMemory: 525581368; totalMemory: 536870912; maxMemory: 2147483648
+INFO	2026-10-31 18:59:55	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2026-10-31 18:59:55	MarkDuplicates	Will retain up to 7780737 data points before spilling to disk.
+WARNING	2026-10-31 18:59:55	AbstractOpticalDuplicateFinderCommandLineProgram	A field field parsed out of a read name was expected to contain an integer and did not. Read name: SRR27975800.287. Cause: String 'SRR27975800.287' did not start with a parsable number.
+INFO	2026-10-31 18:59:59	MarkDuplicates	Read     1,000,000 records.  Elapsed time: 00:00:04s.  Time for last 1,000,000:    4s.  Last read position: Pf3D7_01_v3:613,820
+INFO	2026-10-31 18:59:59	MarkDuplicates	Tracking 4295 as yet unmatched pairs. 184 records in RAM.
+INFO	2026-10-31 19:00:02	MarkDuplicates	Read     2,000,000 records.  Elapsed time: 00:00:07s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_02_v3:677,411
+INFO	2026-10-31 19:00:02	MarkDuplicates	Tracking 9412 as yet unmatched pairs. 437 records in RAM.
+INFO	2026-10-31 19:00:05	MarkDuplicates	Read     3,000,000 records.  Elapsed time: 00:00:10s.  Time for last 1,000,000:    2s.  Last read position: Pf3D7_03_v3:303,396
+INFO	2026-10-31 19:00:05	MarkDuplicates	Tracking 14221 as yet unmatched pairs. 781 records in RAM.
+INFO	2026-10-31 19:00:08	MarkDuplicates	Read     4,000,000 records.  Elapsed time: 00:00:13s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_03_v3:935,396
+INFO	2026-10-31 19:00:08	MarkDuplicates	Tracking 16878 as yet unmatched pairs. 512 records in RAM.
+INFO	2026-10-31 19:00:12	MarkDuplicates	Read     5,000,000 records.  Elapsed time: 00:00:16s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_04_v3:416,007
+INFO	2026-10-31 19:00:12	MarkDuplicates	Tracking 19698 as yet unmatched pairs. 1092 records in RAM.
+INFO	2026-10-31 19:00:15	MarkDuplicates	Read     6,000,000 records.  Elapsed time: 00:00:20s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_04_v3:984,514
+INFO	2026-10-31 19:00:15	MarkDuplicates	Tracking 22372 as yet unmatched pairs. 319 records in RAM.
+INFO	2026-10-31 19:00:19	MarkDuplicates	Read     7,000,000 records.  Elapsed time: 00:00:24s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_05_v3:381,347
+INFO	2026-10-31 19:00:19	MarkDuplicates	Tracking 24553 as yet unmatched pairs. 1233 records in RAM.
+INFO	2026-10-31 19:00:25	MarkDuplicates	Read     8,000,000 records.  Elapsed time: 00:00:30s.  Time for last 1,000,000:    6s.  Last read position: Pf3D7_05_v3:1,037,510
+INFO	2026-10-31 19:00:25	MarkDuplicates	Tracking 26590 as yet unmatched pairs. 525 records in RAM.
+INFO	2026-10-31 19:00:29	MarkDuplicates	Read     9,000,000 records.  Elapsed time: 00:00:33s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_06_v3:331,291
+INFO	2026-10-31 19:00:29	MarkDuplicates	Tracking 28766 as yet unmatched pairs. 2377 records in RAM.
+INFO	2026-10-31 19:00:32	MarkDuplicates	Read    10,000,000 records.  Elapsed time: 00:00:37s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_06_v3:967,274
+INFO	2026-10-31 19:00:32	MarkDuplicates	Tracking 30575 as yet unmatched pairs. 1478 records in RAM.
+INFO	2026-10-31 19:00:36	MarkDuplicates	Read    11,000,000 records.  Elapsed time: 00:00:41s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_07_v3:125,337
+INFO	2026-10-31 19:00:36	MarkDuplicates	Tracking 31432 as yet unmatched pairs. 2475 records in RAM.
+INFO	2026-10-31 19:00:39	MarkDuplicates	Read    12,000,000 records.  Elapsed time: 00:00:44s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_07_v3:707,965
+INFO	2026-10-31 19:00:39	MarkDuplicates	Tracking 32591 as yet unmatched pairs. 1643 records in RAM.
+INFO	2026-10-31 19:00:42	MarkDuplicates	Read    13,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_07_v3:1,309,397
+INFO	2026-10-31 19:00:42	MarkDuplicates	Tracking 33712 as yet unmatched pairs. 439 records in RAM.
+INFO	2026-10-31 19:00:46	MarkDuplicates	Read    14,000,000 records.  Elapsed time: 00:00:51s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_08_v3:443,490
+INFO	2026-10-31 19:00:46	MarkDuplicates	Tracking 36256 as yet unmatched pairs. 2981 records in RAM.
+INFO	2026-10-31 19:00:49	MarkDuplicates	Read    15,000,000 records.  Elapsed time: 00:00:54s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_08_v3:1,160,481
+INFO	2026-10-31 19:00:49	MarkDuplicates	Tracking 36604 as yet unmatched pairs. 1389 records in RAM.
+INFO	2026-10-31 19:00:58	MarkDuplicates	Read    16,000,000 records.  Elapsed time: 00:01:02s.  Time for last 1,000,000:    8s.  Last read position: Pf3D7_09_v3:332,044
+INFO	2026-10-31 19:00:58	MarkDuplicates	Tracking 36423 as yet unmatched pairs. 3308 records in RAM.
+INFO	2026-10-31 19:01:01	MarkDuplicates	Read    17,000,000 records.  Elapsed time: 00:01:06s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_09_v3:1,050,416
+INFO	2026-10-31 19:01:01	MarkDuplicates	Tracking 36472 as yet unmatched pairs. 1771 records in RAM.
+INFO	2026-10-31 19:01:05	MarkDuplicates	Read    18,000,000 records.  Elapsed time: 00:01:09s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_10_v3:193,496
+INFO	2026-10-31 19:01:05	MarkDuplicates	Tracking 35879 as yet unmatched pairs. 5086 records in RAM.
+INFO	2026-10-31 19:01:08	MarkDuplicates	Read    19,000,000 records.  Elapsed time: 00:01:13s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_10_v3:884,830
+INFO	2026-10-31 19:01:08	MarkDuplicates	Tracking 35503 as yet unmatched pairs. 3490 records in RAM.
+INFO	2026-10-31 19:01:12	MarkDuplicates	Read    20,000,000 records.  Elapsed time: 00:01:16s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_10_v3:1,511,391
+INFO	2026-10-31 19:01:12	MarkDuplicates	Tracking 34894 as yet unmatched pairs. 1708 records in RAM.
+INFO	2026-10-31 19:01:16	MarkDuplicates	Read    21,000,000 records.  Elapsed time: 00:01:20s.  Time for last 1,000,000:    4s.  Last read position: Pf3D7_11_v3:263,223
+INFO	2026-10-31 19:01:16	MarkDuplicates	Tracking 32923 as yet unmatched pairs. 5747 records in RAM.
+INFO	2026-10-31 19:01:19	MarkDuplicates	Read    22,000,000 records.  Elapsed time: 00:01:23s.  Time for last 1,000,000:    2s.  Last read position: Pf3D7_11_v3:932,274
+INFO	2026-10-31 19:01:19	MarkDuplicates	Tracking 32335 as yet unmatched pairs. 4130 records in RAM.
+INFO	2026-10-31 19:01:22	MarkDuplicates	Read    23,000,000 records.  Elapsed time: 00:01:26s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_11_v3:1,635,466
+INFO	2026-10-31 19:01:22	MarkDuplicates	Tracking 31143 as yet unmatched pairs. 1758 records in RAM.
+INFO	2026-10-31 19:01:27	MarkDuplicates	Read    24,000,000 records.  Elapsed time: 00:01:32s.  Time for last 1,000,000:    5s.  Last read position: Pf3D7_12_v3:203,679
+INFO	2026-10-31 19:01:27	MarkDuplicates	Tracking 29791 as yet unmatched pairs. 8300 records in RAM.
+INFO	2026-10-31 19:01:31	MarkDuplicates	Read    25,000,000 records.  Elapsed time: 00:01:36s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_12_v3:867,812
+INFO	2026-10-31 19:01:31	MarkDuplicates	Tracking 28531 as yet unmatched pairs. 6333 records in RAM.
+INFO	2026-10-31 19:01:35	MarkDuplicates	Read    26,000,000 records.  Elapsed time: 00:01:40s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_12_v3:1,485,988
+INFO	2026-10-31 19:01:35	MarkDuplicates	Tracking 26859 as yet unmatched pairs. 3629 records in RAM.
+INFO	2026-10-31 19:01:38	MarkDuplicates	Read    27,000,000 records.  Elapsed time: 00:01:42s.  Time for last 1,000,000:    2s.  Last read position: Pf3D7_12_v3:2,144,021
+INFO	2026-10-31 19:01:38	MarkDuplicates	Tracking 24931 as yet unmatched pairs. 773 records in RAM.
+INFO	2026-10-31 19:01:41	MarkDuplicates	Read    28,000,000 records.  Elapsed time: 00:01:46s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_13_v3:656,899
+INFO	2026-10-31 19:01:41	MarkDuplicates	Tracking 22628 as yet unmatched pairs. 9567 records in RAM.
+INFO	2026-10-31 19:01:45	MarkDuplicates	Read    29,000,000 records.  Elapsed time: 00:01:49s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_13_v3:1,313,866
+INFO	2026-10-31 19:01:45	MarkDuplicates	Tracking 20403 as yet unmatched pairs. 6920 records in RAM.
+INFO	2026-10-31 19:01:48	MarkDuplicates	Read    30,000,000 records.  Elapsed time: 00:01:52s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_13_v3:1,994,251
+INFO	2026-10-31 19:01:48	MarkDuplicates	Tracking 18119 as yet unmatched pairs. 4209 records in RAM.
+INFO	2026-10-31 19:01:51	MarkDuplicates	Read    31,000,000 records.  Elapsed time: 00:01:56s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_13_v3:2,703,547
+INFO	2026-10-31 19:01:51	MarkDuplicates	Tracking 15859 as yet unmatched pairs. 1527 records in RAM.
+INFO	2026-10-31 19:02:00	MarkDuplicates	Read    32,000,000 records.  Elapsed time: 00:02:05s.  Time for last 1,000,000:    9s.  Last read position: Pf3D7_14_v3:457,856
+INFO	2026-10-31 19:02:00	MarkDuplicates	Tracking 12523 as yet unmatched pairs. 12055 records in RAM.
+INFO	2026-10-31 19:02:04	MarkDuplicates	Read    33,000,000 records.  Elapsed time: 00:02:09s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_14_v3:1,144,869
+INFO	2026-10-31 19:02:04	MarkDuplicates	Tracking 9477 as yet unmatched pairs. 8988 records in RAM.
+INFO	2026-10-31 19:02:07	MarkDuplicates	Read    34,000,000 records.  Elapsed time: 00:02:12s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_14_v3:1,797,543
+INFO	2026-10-31 19:02:07	MarkDuplicates	Tracking 6866 as yet unmatched pairs. 6368 records in RAM.
+INFO	2026-10-31 19:02:11	MarkDuplicates	Read    35,000,000 records.  Elapsed time: 00:02:15s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_14_v3:2,509,430
+INFO	2026-10-31 19:02:11	MarkDuplicates	Tracking 3962 as yet unmatched pairs. 3453 records in RAM.
+INFO	2026-10-31 19:02:14	MarkDuplicates	Read    36,000,000 records.  Elapsed time: 00:02:19s.  Time for last 1,000,000:    3s.  Last read position: Pf3D7_14_v3:3,203,718
+INFO	2026-10-31 19:02:14	MarkDuplicates	Tracking 1111 as yet unmatched pairs. 591 records in RAM.
+INFO	2026-10-31 19:02:16	MarkDuplicates	Read 36559266 records. 0 pairs never matched.
+INFO	2026-10-31 19:02:18	MarkDuplicates	After buildSortedReadEndLists freeMemory: 525186600; totalMemory: 536870912; maxMemory: 2147483648
+INFO	2026-10-31 19:02:18	MarkDuplicates	Will retain up to 67108864 duplicate indices before spilling to disk.
+INFO	2026-10-31 19:02:18	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2026-10-31 19:02:25	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2026-10-31 19:02:34	MarkDuplicates	Sorting list of duplicate records.
+INFO	2026-10-31 19:02:34	MarkDuplicates	After generateDuplicateIndexes freeMemory: 567366384; totalMemory: 1116733440; maxMemory: 2147483648
+INFO	2026-10-31 19:02:34	MarkDuplicates	Marking 2814019 records as duplicates.
+INFO	2026-10-31 19:02:34	MarkDuplicates	Found 0 optical duplicate clusters.
+INFO	2026-10-31 19:02:34	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2026-10-31 19:04:05	MarkDuplicates	Written    10,000,000 records.  Elapsed time: 00:01:30s.  Time for last 10,000,000:   90s.  Last read position: Pf3D7_07_v3:6,844
+INFO	2026-10-31 19:05:36	MarkDuplicates	Written    20,000,000 records.  Elapsed time: 00:03:02s.  Time for last 10,000,000:   91s.  Last read position: Pf3D7_11_v3:715,207
+INFO	2026-10-31 19:07:05	MarkDuplicates	Written    30,000,000 records.  Elapsed time: 00:04:30s.  Time for last 10,000,000:   88s.  Last read position: Pf3D7_14_v3:778,042
+INFO	2026-10-31 19:08:00	MarkDuplicates	Writing complete. Closing input iterator.
+INFO	2026-10-31 19:08:00	MarkDuplicates	Duplicate Index cleanup.
+INFO	2026-10-31 19:08:00	MarkDuplicates	Getting Memory Stats.
+INFO	2026-10-31 19:08:00	MarkDuplicates	Before output close freeMemory: 524617952; totalMemory: 536870912; maxMemory: 2147483648
+INFO	2026-10-31 19:08:00	MarkDuplicates	Closed outputs. Getting more Memory Stats.
+INFO	2026-10-31 19:08:00	MarkDuplicates	After output close freeMemory: 524617952; totalMemory: 536870912; maxMemory: 2147483648
+[Sat Oct 31 19:08:00 UTC 2026] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 8.09 minutes.
+Runtime.totalMemory()=536870912
