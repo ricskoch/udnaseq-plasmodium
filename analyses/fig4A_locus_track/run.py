@@ -8,8 +8,9 @@ Method
     Merged 3D7 log2(U-enrichment), GEO 10 bp track; red = positive, blue = negative.
     Gene tracks: var (green), rif/stevor (blue); G4 predictions (red; strong sites
     |G4Hunter| > 1.2 and <= 200 bp drawn full height, others half height).
-    The published locus coordinates were not recorded; default = central var cluster of
-    chromosome 7. Override:  python run.py Pf3D7_07_v3 505000 605000
+    Window recovered from the IGV export igv_alltracks_chr7.svg (Drive: Figures/): ruler ticks every 10 kb
+    (47.44 px) and track baselines spanning 459 px give chr7:507,300-604,000 (+-300 bp).
+    Override:  python run.py Pf3D7_07_v3 505000 605000
 Outputs  output/fig4A_<chrom>_<start>_<end>.png/svg, COMPARISON.md
 """
 import sys
@@ -27,7 +28,7 @@ from udnaseq import config, io  # noqa: E402
 from udnaseq.report import Report, savefig  # noqa: E402
 
 OUT = HERE / "output"
-DEFAULT = ("Pf3D7_07_v3", 505_000, 605_000)
+DEFAULT = ("Pf3D7_07_v3", 507_300, 604_000)  # recovered from igv_alltracks_chr7.svg (tick spacing and track extent)
 
 
 def main(chrom, start, end):
@@ -68,10 +69,10 @@ def main(chrom, start, end):
     savefig(fig, OUT, f"fig4A_{chrom}_{start}_{end}")
 
     rep = Report("Fig. 4A - representative locus", "Locus view of merged 3D7 log2(U-enrichment) with VSA genes and G4s.")
-    rep.check("locus", "chromosome 7 (exact window not recorded)", f"{chrom}:{start:,}-{end:,}", "INFO",
+    rep.check("locus", "chr7 ~507.3-604.0 kb (from igv_alltracks_chr7.svg, +-300 bp)", f"{chrom}:{start:,}-{end:,}", "INFO",
               f"{len(var)} var, {len(rs)} rif/stevor, {len(g4)} G4 sites in window")
-    rep.note("The legacy repository has no file for this panel (likely an IGV screenshot). Set the exact published "
-             "window via the command-line arguments.")
+    rep.note("The legacy repository has no file for this panel. The window is read off the IGV export igv_alltracks_chr7.svg "
+             "(ruler 510-600 kb ticks and the 459 px track width); IGV shows per-sample IP/INPUT coverage there, not the merged log2 track drawn here.")
     rep.write(HERE / "COMPARISON.md")
 
 

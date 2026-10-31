@@ -20,6 +20,7 @@ ORDER = [
     "00c_tracks_10bp",
     "figS1AB_sample_correlation",
     "qc_pca",
+    "qc_library_bias",
     "fig2B_S1C_genome_distribution",
     "fig2C_3A_S1D_S2_gene_enrichment",
     "fig3B_vsa_metaprofiles",

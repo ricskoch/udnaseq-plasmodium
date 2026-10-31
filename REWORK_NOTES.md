@@ -70,3 +70,17 @@ deepTools matrix, the PCA scores, the GC table and the 100 bp G4 table.
 
 Fig. 1 wet-lab panels, the ShinyGO GO analysis itself (input list provided), read mapping, and the exact
 coordinates of the Fig. 4A locus (default: chr7 central var cluster, adjustable).
+
+## 6. Per-dataset results (GEO tracks, added later)
+
+Per-dataset analyses: `00b_bin_approximation`, `00c_tracks_10bp`, `fig3B_per_dataset`, `fig4C_per_dataset`,
+`fig4C_gc_matched_null`, `qc_library_bias`, summary in `replicate_consistency/COMPARISON.md`.
+
+- Figs 2C, 3B and 4B hold in rep1, rep2, DMSO and RAPA.
+- Fig 4C (hotspots near G4) is carried by rep1 (25x over a random null), weaker in rep2 and RAPA (11x), absent in DMSO (0.4x).
+  Matching GC of the 10 bp bin keeps ~5x in merged/rep1/rep2; also matching the 500 bp window GC leaves 1.3-1.5x (lost in RAPA, DMSO).
+  In a 100 bp model with GC deciles, G4 proximity adds < 0.001 R2.
+- Averaging the 1 bp GEO tracks to 100 bp shrinks the signal (slope 0.77-0.82 vs the exact RPGC log2 ratio), so a fixed log2U > 0.5
+  gives dataset-dependent hotspot counts; compare datasets with count-matched hotspot sets.
+- DMSO/RAPA INPUT coverage rises twice as steeply with GC as rep1/rep2 INPUT (see `qc_library_bias`).
+- Fig 4A window recovered from the IGV export: chr7:507,300-604,000.
