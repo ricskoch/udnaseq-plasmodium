@@ -46,6 +46,29 @@ def read_binned_bigwig(path, binsize=config.BIN, chroms=None) -> dict[str, np.nd
     return {c: bin_mean(v, binsize) for c, v in read_bigwig(path, chroms).items()}
 
 
+def bigwig_stats(path, regions: pd.DataFrame, exact=False) -> np.ndarray:
+    """Mean signal per region via pyBigWig.stats.
+
+    exact=False reproduces deepTools (multiBigwigSummary/computeMatrix), which
+    reads pre-computed zoom-level summaries; these are approximations of the
+    true per-base mean.  exact=True returns the true mean over covered bases.
+    """
+    bw = pyBigWig.open(str(path))
+    out = np.full(len(regions), np.nan)
+    for i, (c, s, e) in enumerate(zip(regions.chrom, regions.start, regions.end)):
+        v = bw.stats(c, int(s), int(e), type="mean", exact=exact)[0]
+        out[i] = np.nan if v is None else v
+    bw.close()
+    return out
+
+
+def bins_frame(binsize: int, chroms=None, sizes=None) -> pd.DataFrame:
+    sizes = sizes or chrom_sizes()
+    rows = [(c, s, min(s + binsize, L)) for c, L in sorted(sizes.items())
+            if chroms is None or c in chroms for s in range(0, L, binsize)]
+    return pd.DataFrame(rows, columns=["chrom", "start", "end"])
+
+
 def tracks_to_frame(tracks: dict[str, np.ndarray], binsize: int, sizes=None) -> pd.DataFrame:
     """dict chrom->binned array  ->  bedGraph-like DataFrame (chrom, start, end, value)."""
     sizes = sizes or chrom_sizes()
@@ -81,7 +104,8 @@ def read_bedgraph(path) -> pd.DataFrame:
 
 
 def read_bed(path, names=None) -> pd.DataFrame:
-    d = pd.read_csv(path, sep="\t", header=None, comment="#")
+    # ragged files (e.g. one extra annotation column on a single line) are tolerated
+    d = pd.read_csv(path, sep="\t", header=None, comment="#", names=range(13)).dropna(axis=1, how="all")
     base = ["chrom", "start", "end", "name", "score", "strand"]
     d.columns = (names or base + [f"c{i}" for i in range(6, d.shape[1])])[: d.shape[1]]
     return d
