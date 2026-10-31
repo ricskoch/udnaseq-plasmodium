@@ -29,6 +29,8 @@ ORDER = [
     "fig4B_per_dataset",
     "fig4C_g4_distance",
     "fig4C_per_dataset",
+    "fig4C_gc_matched_null",
+    "replicate_consistency",
 ]
 
 
