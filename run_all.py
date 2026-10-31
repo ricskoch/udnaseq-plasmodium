@@ -25,12 +25,14 @@ ORDER = [
     "fig2C_3A_S1D_S2_gene_enrichment",
     "fig3B_vsa_metaprofiles",
     "fig3B_per_dataset",
+    "fig3B_gc_profile",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
     "fig4B_per_dataset",
     "fig4C_g4_distance",
     "fig4C_per_dataset",
     "fig4C_gc_matched_null",
+    "gc_corrected",
     "replicate_consistency",
 ]
 

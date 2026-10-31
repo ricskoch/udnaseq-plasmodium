@@ -9,14 +9,17 @@ Status of every legacy/manuscript check (details in each analysis' COMPARISON.md
 | [00c_tracks_10bp](analyses/00c_tracks_10bp/COMPARISON.md) | 0 | 0 | 0 | 0 | 4 |
 | [figS1AB_sample_correlation](analyses/figS1AB_sample_correlation/COMPARISON.md) | 9 | 0 | 0 | 0 | 9 |
 | [qc_pca](analyses/qc_pca/COMPARISON.md) | 4 | 0 | 0 | 0 | 0 |
+| [qc_library_bias](analyses/qc_library_bias/COMPARISON.md) | 0 | 0 | 0 | 0 | 4 |
 | [fig2B_S1C_genome_distribution](analyses/fig2B_S1C_genome_distribution/COMPARISON.md) | 1 | 1 | 0 | 0 | 1 |
 | [fig2C_3A_S1D_S2_gene_enrichment](analyses/fig2C_3A_S1D_S2_gene_enrichment/COMPARISON.md) | 7 | 1 | 0 | 1 | 5 |
 | [fig3B_vsa_metaprofiles](analyses/fig3B_vsa_metaprofiles/COMPARISON.md) | 3 | 1 | 0 | 0 | 1 |
 | [fig3B_per_dataset](analyses/fig3B_per_dataset/COMPARISON.md) | 0 | 0 | 0 | 0 | 0 |
+| [fig3B_gc_profile](analyses/fig3B_gc_profile/COMPARISON.md) | 0 | 0 | 0 | 0 | 10 |
 | [fig4A_locus_track](analyses/fig4A_locus_track/COMPARISON.md) | 0 | 0 | 0 | 0 | 1 |
 | [fig4B_gc_correlation](analyses/fig4B_gc_correlation/COMPARISON.md) | 4 | 0 | 1 | 0 | 0 |
 | [fig4B_per_dataset](analyses/fig4B_per_dataset/COMPARISON.md) | 0 | 0 | 0 | 0 | 5 |
 | [fig4C_g4_distance](analyses/fig4C_g4_distance/COMPARISON.md) | 4 | 0 | 0 | 0 | 4 |
 | [fig4C_per_dataset](analyses/fig4C_per_dataset/COMPARISON.md) | 0 | 0 | 0 | 0 | 5 |
 | [fig4C_gc_matched_null](analyses/fig4C_gc_matched_null/COMPARISON.md) | 0 | 0 | 0 | 0 | 5 |
+| [gc_corrected](analyses/gc_corrected/COMPARISON.md) | 0 | 0 | 0 | 0 | 5 |
 | [replicate_consistency](analyses/replicate_consistency/COMPARISON.md) | 0 | 0 | 0 | 0 | 0 |
