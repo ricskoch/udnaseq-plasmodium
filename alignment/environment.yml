@@ -1,0 +1,16 @@
+name: udna-align
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bwa
+  - samtools
+  - fastp
+  - picard
+  - sra-tools
+  - deeptools
+  - bedtools
+  - pybigwig
+  - numpy
+  - pandas
+  - matplotlib
