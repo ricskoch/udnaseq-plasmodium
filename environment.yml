@@ -1,21 +1,14 @@
-name: reproducibility-analysis
+name: udnaseq-plasmodium
 channels:
-  - bioconda
   - conda-forge
-  - defaults
+  - bioconda
 dependencies:
   - python=3.11
-  - numpy
-  - scipy
-  - pandas
-  - matplotlib
-  - seaborn
-  - scikit-learn
-  - jupyter
-  - jupyterlab
-  - pip
-  - bedtools
-  - samtools
-  - deeptools
-  - pip:
-    - pyBigWig
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy>=1.11
+  - matplotlib>=3.8
+  - statsmodels>=0.14
+  - scikit-learn>=1.3
+  - openpyxl>=3.1
+  - pybigwig>=0.3.22
