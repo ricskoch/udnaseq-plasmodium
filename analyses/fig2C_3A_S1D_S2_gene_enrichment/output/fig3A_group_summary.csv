@@ -1,0 +1,8 @@
+group,count,mean,median
+Group A,9,0.132,0.173
+Group A/B,4,0.203,0.202
+Group B,22,0.219,0.219
+Group B/C,9,0.222,0.202
+Group C,13,0.218,0.233
+unassigned,4,0.191,0.188
+var2csa,1,0.071,0.071

@@ -48,7 +48,7 @@ def main():
     pca = PCA(n_components=n)
     S = pca.fit_transform(X)
     res = pd.DataFrame(S, columns=[f"PC{i + 1}" for i in range(n)]).assign(Sample=keys)[["Sample"] + [f"PC{i + 1}" for i in range(n)]]
-    res.to_csv(OUT / "pca_results.csv", index=False)
+    res.round(6).to_csv(OUT / "pca_results.csv", index=False)
     pd.DataFrame({"PC": [f"PC{i + 1}" for i in range(len(full.explained_variance_ratio_))],
                   "explained_variance_ratio": full.explained_variance_ratio_}).to_csv(OUT / "pca_variance.csv", index=False)
 

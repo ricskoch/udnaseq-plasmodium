@@ -27,10 +27,11 @@ def protein_coding_genes() -> pd.DataFrame:
         "strand": g[6].values,
     })
     out["category"] = out.apply(_category, axis=1)
-    # Legacy definition used for the published Fig. 2C: gene symbol only.
+    # Legacy definition used for the published Fig. 2C: gene symbol, or the first
+    # word of the description when there is no symbol (VAR / RIF / stevor).
     # It leaves var2csa (symbol VAR2CSA) and 3 PfEMP1 exon-2 fragments in "Others".
-    sym = out.symbol.fillna("").str.upper()
-    out["category_legacy"] = np.where(sym.isin(["VAR", "RIF", "STEVOR"]), sym, "Others")
+    out["legacy_name"] = out.symbol.fillna(out.description.str.split().str[0])
+    out["category_legacy"] = out.legacy_name.map({"VAR": "VAR", "RIF": "RIF", "stevor": "STEVOR"}).fillna("Others")
     return out.reset_index(drop=True)
 
 
