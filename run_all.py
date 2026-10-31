@@ -23,6 +23,7 @@ ORDER = [
     "fig3B_vsa_metaprofiles",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
+    "fig4B_per_dataset",
     "fig4C_g4_distance",
 ]
 
