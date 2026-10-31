@@ -1,0 +1,8 @@
+{
+  "ip_weight_rep1": 0.8891,
+  "input_weight_rep1": 0.5654,
+  "n_bins_fitted": 231229,
+  "pearson_r": 0.9999999998133102,
+  "median_abs_residual": 2.669391167515328e-06,
+  "p99_abs_residual": 1.1536345520187785e-05
+}
