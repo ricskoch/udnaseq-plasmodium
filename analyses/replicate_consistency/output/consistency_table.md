@@ -1,0 +1,14 @@
+| Finding | Metric | 3d7_rep1 | 3d7_rep2 | DMSO | RAPA | 3d7_merged | Holds in |
+|---|---|---|---|---|---|---|---|
+| Fig 2C: VAR genes > other genes | mean log2U difference (BH p max) | +0.188 | +0.299 | +0.101 | +0.316 |  | 4/4 datasets (BH p<0.001) |
+| Fig 2C: RIF genes > other genes | mean log2U difference (BH p max) | +0.099 | +0.242 | +0.192 | +0.338 |  | 4/4 datasets (BH p<0.001) |
+| Fig 2C: STEVOR genes > other genes | mean log2U difference (BH p max) | +0.100 | +0.207 | +0.205 | +0.300 |  | 4/4 datasets (BH p<0.001) |
+| Fig 4B: GC% vs log2U | Pearson r (100 bp bins) | 0.41 | 0.53 | 0.46 | 0.54 | 0.44 | 5/5 datasets (r > 0.3) |
+| Fig 3B: var enriched in first 6 kb vs 6-10 kb | mean log2U difference (95 % CI over genes) | +0.24 (+0.22, +0.27) | +0.25 (+0.22, +0.28) | +0.21 (+0.17, +0.24) | +0.37 (+0.32, +0.42) | +0.18 (+0.16, +0.20) | 5/5 datasets |
+| Fig 3B: rif/stevor body > flanks | mean log2U difference (95 % CI over genes) | +0.38 (+0.36, +0.39) | +0.61 (+0.59, +0.63) | +0.50 (+0.48, +0.51) | +0.77 (+0.73, +0.80) | +0.39 (+0.38, +0.41) | 5/5 datasets |
+| Fig 3B: rif/stevor exon-2 side > first 30 % of body | mean log2U difference (95 % CI over genes) | +0.41 (+0.38, +0.44) | +0.44 (+0.41, +0.47) | +0.46 (+0.44, +0.49) | +0.70 (+0.66, +0.73) | +0.39 (+0.36, +0.41) | 5/5 datasets |
+| Fig 3B: rif/stevor profile peak position | peak of mean profile, % of scaled body | 51% | 53% | 83% | 72% | 53% | position not stable (51-53 % merged/rep1/rep2, 72-83 % RAPA/DMSO) |
+| Fig 4C: hotspots within 100 bp of strong G4 (random null) | % obs / % null (fold), N = 4,034 hotspots | 26.1% / 1.1% (24.7x) | 11.5% / 1.1% (10.9x) | 0.4% / 1.0% (0.4x) | 11.2% / 1.0% (10.9x) | 25.5% / 1.1% (24.2x) | 4/5 datasets (DMSO: depleted) |
+| Fig 4C: same, GC-matched null (10 bp GC) | % obs / % null (fold) | 26.1% / 5.5% (4.8x) | 11.5% / 2.5% (4.7x) | 0.4% / 1.7% (0.2x) | 11.2% / 4.2% (2.6x) | 25.5% / 5.1% (5.0x) | 4/5 datasets |
+| Fig 4C: same, GC-matched null (10 bp GC + 500 bp-window GC) | % obs / % null (fold) | 26.1% / 20.9% (1.3x) | 11.5% / 7.7% (1.5x) | 0.4% / 5.5% (0.1x) | 11.2% / 18.2% (0.6x) | 25.5% / 19.5% (1.3x) | 3/5 datasets |
+| Fig 4C: G4 effect beyond GC (100 bp OLS, GC deciles) | log2U coefficient (SE) | +0.052 (0.010) | +0.076 (0.006) | -0.111 (0.009) | +0.017 (0.009) | +0.061 (0.006) | 3/5 datasets with coef > 3 SE |

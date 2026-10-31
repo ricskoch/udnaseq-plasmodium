@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# downloaded GEO processed tracks (fetched by scripts/fetch_geo.py)
+data/geo/
+# large regenerated genome tracks (rebuilt in seconds by analyses/00_tracks)
+analyses/00_tracks/output/*.bw
+analyses/00_tracks/output/*.bedGraph
+analyses/00_tracks/output/*.npz
+analyses/00c_tracks_10bp/output/*.npz

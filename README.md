@@ -1,92 +1,84 @@
-# U-DNA-Seq Analysis: Plasmodium falciparum Genomic Uracil Landscape
+# U-DNA-Seq analysis: genomic uracil in *Plasmodium falciparum*
 
-This repository contains the bioinformatics analysis pipeline and data for the study:
+Analysis code for **"Genomic uracil within the *Plasmodium falciparum* genome localizes to genes involved in
+antigenic variation of the malaria parasite"** (Izrael *et al.*).
 
-**"Genomic uracil within the Plasmodium falciparum genome localizes to genes involved in antigenic variation of the malaria parasite"**
+Every computational figure panel is regenerated from the raw-most data by one Python script per figure.
+Each script compares its output with the previous (legacy) files and the numbers in the manuscript, and
+writes the result to a `COMPARISON.md`. See [`REPRODUCIBILITY_SUMMARY.md`](REPRODUCIBILITY_SUMMARY.md)
+for the overview and [`REWORK_NOTES.md`](REWORK_NOTES.md) for what was found during the rework.
 
-The manuscript investigates the distribution and functional impact of uracil in the P. falciparum genome, with a focus on variant surface antigen (VSA) gene families, uracil enrichment, G-quadruplex overlap, and the essentiality of uracil DNA glycosylase (PfUNG). For detailed methodology and experimental context, see the attached manuscript.
+## Quick start
 
-## Overview
+```bash
+conda env create -f environment.yml      # or: pip install -r requirements.txt
+conda activate udnaseq-plasmodium
+python run_all.py                        # ~7 min plus a one-off ~650 MB download from GEO
+```
 
-This repository includes:
+```bash
+python run_all.py fig4C                  # run selected analyses only
+```
 
-- **U-DNA-Seq data processing**: Analysis of uracil-enriched DNA using custom pipelines and deepTools.
-- **Gene family and region enrichment**: Quantification of uracil in VSA gene families (var, rif, stevor), G4 regions, and more.
-- **Heatmaps and correlation plots**: Genome-wide and gene-level visualization of uracil enrichment and sample relationships.
-- **Principal Component Analysis (PCA)**: Multivariate analysis of uracil enrichment across samples and conditions.
-- **Reference and annotation files**: Genome, BED, and G4 prediction files for region-based analyses.
+No R, bedtools or deepTools needed: the analyses use numpy/pandas/scipy/pyBigWig.
 
-## Environment Setup
+## Data flow
 
-1. **Install Conda/Miniconda** (if not already installed)
-2. **Create the analysis environment:**
+```
+FASTQ (SRA PRJNA1076816)                                         not in repo
+  └─ bwa mem → samtools → picard MarkDuplicates → MAPQ filter
+       └─ deepTools bamCoverage --normalizeUsing RPGC
+            ├─ data/*.RPGC.bw  (IP + INPUT, 100 bp, per sample)       in repo  ──► 00_tracks
+            └─ deepTools bigwigCompare (log2, pseudocount 1)
+                 ├─ GEO GSE262467: per-sample 1 bp log2 tracks        fetched  ──► S1A/B, 2C, 3A, S1D
+                 └─ GEO GSE262467: merged 3D7 10 bp log2 track        fetched  ──► S1C, 3B, 4A, 4C
+```
 
-  ```bash
-  conda env create -f environment.yml
-  ```
+`scripts/fetch_geo.py` downloads the GEO tracks into `data/geo/` and checks their MD5 sums.
+The 1 bp and 10 bp tracks cannot be rebuilt from the 100 bp RPGC tracks, and the legacy figures were made from them.
 
-  This will install all required dependencies for the full analysis pipeline (deepTools, numpy, pandas, matplotlib, jupyter, etc.).
-
-3. **Activate the environment:**
-
-  ```bash
-  conda activate reproducibility-analysis
-  ```
-
-4. **Verify installation:**
-
-  ```bash
-  python --version  # Should show Python 3.11.x
-  ```
-
-5. **Run analyses and notebooks as described in each subfolder's README or script header.**
-
-## High-Level Directory Structure
+## Repository layout
 
 ```
 udnaseq-plasmodium/
-├── README.md                # Project overview and setup (this file)
-├── METHODOLOGY.md           # Detailed methods and pipeline documentation
-├── environment.yml          # Conda environment specification
-├── 0425_Plasmodium_UDNA_cell_final.txt  # Manuscript text
-├── data/                    # Raw and processed data files
-│   ├── *.bw, *.bedGraph     # BigWig and bedGraph files (uracil enrichment, coverage, etc.)
-│   ├── BED_files/           # Genomic regions: blacklist, centromeres, G4, gene families
-│   ├── log2_bw/             # Log2 enrichment tracks and processed bedGraphs
-│   ├── Refgen/              # Reference genome, annotation, and size files
-├── gene_enrichment/         # Scripts and outputs for gene-level uracil enrichment
-│   ├── gene_enrichment.R    # R script for gene enrichment analysis
-│   ├── list_of_average_uenrichment.csv  # Output: average uracil enrichment per gene
-├── heatmap_correlation/     # Heatmap and correlation analysis (deepTools, etc.)
-│   ├── deepTools_correlation_plotting.md
-│   ├── heatmap_data_all_bin100bp_blacklist.npz
-│   ├── heatmap_data_all.npz
-│   ├── heatmap_data_var.npz
-├── pca_analysis/            # PCA analysis and visualization
-│   ├── pca_analysis.ipynb   # Main PCA notebook
-│   ├── pca_results.csv      # PCA scores
-│   ├── pca_plot.png/.pdf    # PCA plots
-├── g4coordinates/           # G4 region analysis and documentation
-├── GCcontent/               # GC content analysis
-├── var_heatmaps/            # Heatmaps for VSA gene families
-└── ...                      # Additional scripts, outputs, and documentation
+├── run_all.py                         runs everything, writes REPRODUCIBILITY_SUMMARY.md
+├── src/udnaseq/                       shared code: paths/constants (config.py), bigWig IO,
+│                                      genes/blacklist/interval tools, report helpers
+├── scripts/fetch_geo.py               GEO download + MD5 check
+├── analyses/
+│   ├── 00_tracks/                     log2 tracks per sample + merged 3D7 (100 bp) from RPGC coverage
+│   ├── figS1AB_sample_correlation/    Fig. S1A/B  correlation heatmaps (100 bp, 10 kb, var genes)
+│   ├── qc_pca/                        PCA of the 8 coverage tracks (QC, not in the manuscript)
+│   ├── fig2B_S1C_genome_distribution/ Fig. 2B ideogram, Fig. S1C per-chromosome histograms
+│   ├── fig2C_3A_S1D_S2_gene_enrichment/ Table S1, top-200 list for GO (Fig. S2), Fig. 2C, S1D, 3A
+│   ├── fig3B_vsa_metaprofiles/        Fig. 3B var and rif/stevor scaled heatmaps
+│   ├── fig4A_locus_track/             Fig. 4A representative chr7 locus
+│   ├── fig4B_gc_correlation/          Fig. 4B GC% vs log2(U-enrichment)
+│   └── fig4C_g4_distance/             Fig. 4C distance of uracil hotspots to predicted G4s
+│        each: run.py · output/ · COMPARISON.md
+├── data/
+│   ├── *.RPGC.bw                      IP/INPUT coverage, 4 samples (raw-most data in the repo)
+│   ├── Refgen/                        PlasmoDB-57 genome, GFF, chromosome sizes
+│   ├── BED_files/                     blacklist, centromeres, G4 predictions, var/rif/stevor genes
+│   ├── histone_chipseq/               H3K4me3/H3K9ac/H3K9me3 log2 tracks (not used in the manuscript)
+│   └── geo/                           GEO tracks (downloaded, git-ignored)
+└── legacy/                            previous R/deepTools/notebook analyses and outputs (reference only)
 ```
 
-## How to Reproduce the Analysis
+Figures that share one underlying table are grouped in one folder (e.g. Fig. 2C, 3A, S1D and Table S1 all come
+from the per-gene means).
 
-1. Set up the environment as above.
-2. Explore each analysis module (see subfolders) for scripts and notebooks. Most analyses can be reproduced by running the provided scripts or notebooks in the appropriate environment.
-3. For PCA, run:
+## Samples
 
-  ```bash
-  jupyter notebook pca_analysis/pca_analysis.ipynb
-  ```
+| Label | Description |
+|---|---|
+| `3d7_rep1`, `3d7_rep2` | wild-type 3D7 schizonts, two biological replicates |
+| `DMSO`, `RAPA` | PfUNG-iKO parasites 88 h after DMSO (mock) or rapamycin (knockout) |
+| `3d7_merged` | rep1 + rep2 merged at the BAM level (IP ≈ 89 % rep1 reads, INPUT ≈ 57 %) |
 
-4. For heatmaps and correlation, see `heatmap_correlation/` and run deepTools commands as described in the markdown files.
-5. For gene enrichment, use the R script in `gene_enrichment/`.
+## Not covered by code
 
-## Notes
-
-- For full details on experimental design, data processing, and interpretation, see the manuscript.
-- Some supplementary data (e.g., GO enrichment tables, raw ShinyGO outputs, or scripts for U-DNA-Seq processing) may not be present in this repository. If you require these, please contact the corresponding author.
-
+- Fig. 1 (growth curves, dot blot, western blot, microscopy): wet-lab data are not in the repository.
+- Fig. S2 GO enrichment runs on the ShinyGO web server; `fig2C_3A_S1D_S2_gene_enrichment/output/top200_for_GO.txt` is its input.
+- Read mapping (FASTQ → RPGC bigWig) is described above but not scripted here.
+- Fig. S3 (protein alignment) is not a data analysis.
