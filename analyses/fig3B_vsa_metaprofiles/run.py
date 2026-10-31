@@ -99,7 +99,7 @@ def main():
     for name, p in SETS.items():
         reg = io.read_bed(p["bed"])
         M = scale_regions(bw, reg, p["up"], p["body"], p["down"])
-        pd.DataFrame(M.round(6), index=reg.name).to_csv(OUT / f"{name}_matrix.csv.gz")
+        pd.DataFrame(M.round(6), index=reg.name).to_csv(OUT / f"{name}_matrix.csv.gz", compression={"method": "gzip", "mtime": 0})
         x = (np.arange(M.shape[1]) * BS) - p["up"]
         pd.DataFrame({"position_bp_scaled": x, "mean": np.nanmean(M, 0), "sd": np.nanstd(M, 0),
                       "n": np.sum(~np.isnan(M), 0)}).round(6).to_csv(OUT / f"{name}_profile.csv", index=False)

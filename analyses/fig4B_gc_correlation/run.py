@@ -62,7 +62,7 @@ def main():
     for c, idx in df.groupby("chrom").groups.items():
         d = df.loc[idx]
         df.loc[idx, "gc"] = gc_fraction(seqs[c], d.start.values, d.end.values)
-    df.round(5).to_csv(OUT / "gc_vs_log2U_100bp.csv.gz", index=False)
+    df.round(5).to_csv(OUT / "gc_vs_log2U_100bp.csv.gz", index=False, compression={"method": "gzip", "mtime": 0})
 
     r_p = stats.pearsonr(df.gc, df.log2U)
     r_s = stats.spearmanr(df.gc, df.log2U)

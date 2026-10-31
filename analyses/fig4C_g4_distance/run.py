@@ -119,7 +119,7 @@ def main():
     # ---- published procedure -----------------------------------------------------------
     allc = genome.closest_signed(U, g4)
     pub = allc[(allc.score_b.abs() > config.G4_MIN_SCORE) & (allc.size_b <= config.G4_MAX_SIZE)]
-    pub.to_csv(OUT / "closest_published_filter_after.csv.gz", index=False)
+    pub.to_csv(OUT / "closest_published_filter_after.csv.gz", index=False, compression={"method": "gzip", "mtime": 0})
     sp = summarise(pub.distance)
     rep.check("hotspot-G4 pairs kept", "-", f"{sp['n']} of {len(allc)} pairs ({len(U)} hotspot bins)", "INFO")
     rep.check("median distance", "0", f"{sp['median']:g}", "MATCH" if sp["median"] == 0 else "DIFFERS")
@@ -132,7 +132,7 @@ def main():
     # ---- recommended: filter G4 first ------------------------------------------------------
     strong = g4[(g4.score.abs() > config.G4_MIN_SCORE) & (g4["size"] <= config.G4_MAX_SIZE)]
     pre = genome.closest_signed(U, strong)
-    pre.to_csv(OUT / "closest_prefiltered_G4.csv.gz", index=False)
+    pre.to_csv(OUT / "closest_prefiltered_G4.csv.gz", index=False, compression={"method": "gzip", "mtime": 0})
     spr = summarise(pre.distance)
     rep.check("prefiltered G4 (recommended): median, quartiles", "-",
               f"{spr['median']:g}, ({spr['q25']:g}, {spr['q75']:g}), n = {spr['n']}", "INFO",

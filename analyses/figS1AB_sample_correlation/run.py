@@ -89,7 +89,8 @@ def main():
         if name != "genome_100bp":  # per-bin table for 227k bins would be ~18 MB
             pd.DataFrame(np.column_stack([reg[["chrom", "start", "end"]].values, Xd, X["exact"]]),
                          columns=["chrom", "start", "end"] + [f"{s}_deeptools" for s in labels] +
-                         [f"{s}_exact" for s in labels]).to_csv(OUT / f"values_{name}.csv.gz", index=False)
+                         [f"{s}_exact" for s in labels]).to_csv(OUT / f"values_{name}.csv.gz", index=False,
+                                                                           compression={"method": "gzip", "mtime": 0})
         for method in ("spearman", "pearson"):
             Cl = corr(L, method)
             iu = np.triu_indices(4, 1)

@@ -17,6 +17,7 @@ plt.rcParams.update({
     "font.size": 10,
     "axes.spines.top": False,
     "axes.spines.right": False,
+    "svg.hashsalt": "udnaseq",  # deterministic SVG ids -> stable git diffs
 })
 
 SAMPLE_COLORS = {"3d7_rep1": "#8B0000", "3d7_rep2": "#00008B", "DMSO": "#008B8B", "RAPA": "#008B00"}
@@ -26,7 +27,8 @@ CATEGORY_COLORS = {"Others": "#7f7f7f", "RIF": "#1f77b4", "STEVOR": "#17becf", "
 def savefig(fig, out: Path, stem: str, formats=("png", "svg")):
     out.mkdir(parents=True, exist_ok=True)
     for f in formats:
-        fig.savefig(out / f"{stem}.{f}", dpi=300, bbox_inches="tight")
+        meta = {"Date": None} if f in ("svg", "pdf") else {}
+        fig.savefig(out / f"{stem}.{f}", dpi=300, bbox_inches="tight", metadata=meta)
     plt.close(fig)
 
 

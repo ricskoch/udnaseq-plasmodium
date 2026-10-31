@@ -46,9 +46,9 @@ def main():
     full = PCA().fit(X)
     n = int(np.argmax(np.cumsum(full.explained_variance_ratio_) >= 0.80) + 1)
     pca = PCA(n_components=n)
-    S = pca.fit_transform(X)
+    S = np.round(pca.fit_transform(X), 6)  # SVD is not bit-stable across runs; 1e-6 is far below any real effect
     res = pd.DataFrame(S, columns=[f"PC{i + 1}" for i in range(n)]).assign(Sample=keys)[["Sample"] + [f"PC{i + 1}" for i in range(n)]]
-    res.round(6).to_csv(OUT / "pca_results.csv", index=False)
+    res.to_csv(OUT / "pca_results.csv", index=False)
     pd.DataFrame({"PC": [f"PC{i + 1}" for i in range(len(full.explained_variance_ratio_))],
                   "explained_variance_ratio": full.explained_variance_ratio_}).to_csv(OUT / "pca_variance.csv", index=False)
 

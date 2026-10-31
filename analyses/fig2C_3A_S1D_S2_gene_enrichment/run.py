@@ -92,7 +92,7 @@ def vsa_vs_others(t: pd.DataFrame, cols, catcol):
             tt, p, n1, n2, d = welch(t.loc[t[catcol] == fam, c], t.loc[t[catcol] == "Others", c])
             rows.append({"dataset": c, "family": fam, "n_family": n1, "n_others": n2, "mean_diff": d,
                          "welch_t": tt, "p": p,
-                         "p_R_pairwise_pooled_BH_input": r_pooled_pairwise(t[c], t[catcol], fam, "Others")})
+                         "p_pooled_sd_unadjusted": r_pooled_pairwise(t[c], t[catcol], fam, "Others")})
     r = pd.DataFrame(rows)
     r["p_BH"] = multipletests(r.p, method="fdr_bh")[1]
     return r
@@ -282,7 +282,7 @@ def main():
              "PfEMP1 exon-2 fragments were counted as 'Others'. The *_exact_annotation outputs count them as VAR; "
              "conclusions do not change.")
     rep.note("Legacy R code ran pairwise.t.test with the default pool.sd = TRUE (pooled-SD t-tests), while the "
-             "manuscript states Welch's t-test. Both are in stats_fig2C_VSA_vs_others_*.csv; all are p < 1e-10.")
+             "manuscript states Welch's t-test. Both are in stats_fig2C_VSA_vs_others_*.csv (column p_pooled_sd_unadjusted); all are p < 1e-9.")
     rep.write(HERE / "COMPARISON.md")
 
 

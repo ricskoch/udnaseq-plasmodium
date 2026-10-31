@@ -98,7 +98,7 @@ def main():
 
     simple = log2ratio((ip1 + ip2) / 2, (in1 + in2) / 2)
     rep.check("merged 3D7 (100 bp): equal-weight average of replicates", "legacy bedGraph",
-              f"r = {np.corrcoef(simple, y)[0, 1]:.3f}", "DIFFERS",
+              f"r = {np.corrcoef(simple, y)[0, 1]:.3f}", "INFO",
               "the legacy merged track is not a simple average")
     rep.check("merged 3D7 (100 bp): read-share weighted merge", "legacy bedGraph",
               f"r = {weights['pearson_r']:.6f}, 99th pct |diff| = {weights['p99_abs_residual']:.1e}",
