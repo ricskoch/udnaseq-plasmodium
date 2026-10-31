@@ -8,3 +8,4 @@ data/geo/
 analyses/00_tracks/output/*.bw
 analyses/00_tracks/output/*.bedGraph
 analyses/00_tracks/output/*.npz
+analyses/00c_tracks_10bp/output/*.npz

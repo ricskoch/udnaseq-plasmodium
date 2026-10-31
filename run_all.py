@@ -16,15 +16,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ORDER = [
     "00_tracks",
+    "00b_bin_approximation",
+    "00c_tracks_10bp",
     "figS1AB_sample_correlation",
     "qc_pca",
     "fig2B_S1C_genome_distribution",
     "fig2C_3A_S1D_S2_gene_enrichment",
     "fig3B_vsa_metaprofiles",
+    "fig3B_per_dataset",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
     "fig4B_per_dataset",
     "fig4C_g4_distance",
+    "fig4C_per_dataset",
 ]
 
 
