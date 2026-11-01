@@ -66,6 +66,6 @@ axc.set_xlabel("difference in log2(U-enrichment) at equal GC (95 % CI, 100 kb bl
 axc.legend(frameon=False, fontsize=6, ncol=4, loc="lower right")
 axc.set_title("C  Contrasts that remain after comparing bins of equal GC", loc="left", fontsize=8, fontweight="bold")
 fig.text(0.01, 0.005, "* relative to non-VSA internal genic bins. Equal GC: 20 GC classes, weighted by the smaller group.", fontsize=6, color="#555")
-fig.savefig(OUT / "figure_gcbias.svg", bbox_inches="tight"); fig.savefig(OUT / "figure_gcbias.png", bbox_inches="tight")
+fig.savefig(OUT / "figure_gcbias.svg", bbox_inches="tight"); fig.savefig(OUT / "figure_gcbias.png", bbox_inches="tight", dpi=600)
 pd.DataFrame(data).round(4).to_csv(OUT / "figure_data.csv", index=False)
 (HERE / "COMPARISON.md").write_text("# Revised Figure 4 (GC bias)\n\nPanel data in output/figure_data.csv; figure_gcbias.svg is the vector file.\n\n" + pd.DataFrame(data).round(3).to_markdown(index=False) + "\n")

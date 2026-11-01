@@ -26,7 +26,7 @@ for i, (k, lab, c) in enumerate(SC):
 ax.axhline(0, color="k", lw=0.6); ax.set_xticks(range(3)); ax.set_xticklabels(["var", "rif", "stevor"])
 ax.set_ylabel("RAPA - DMSO\nmean log2(U-enrichment)"); ax.legend(frameon=False, fontsize=6)
 ax.set_title("Fig S4  var/rif difference between RAPA and DMSO is GC-linked", loc="left", fontsize=7.5, fontweight="bold")
-fig.savefig(OUT / "figure_s4_rapa_dmso.svg", bbox_inches="tight"); fig.savefig(OUT / "figure_s4_rapa_dmso.png", bbox_inches="tight")
+fig.savefig(OUT / "figure_s4_rapa_dmso.svg", bbox_inches="tight"); fig.savefig(OUT / "figure_s4_rapa_dmso.png", bbox_inches="tight", dpi=600)
 g = pd.read_csv(A / "fig4C_gc_matched_null/output/matched_null_summary.csv")
 t = g[["dataset", "matching", "n_hotspots", "obs_frac_within_100bp", "null_frac_within_100bp", "fold_frac_within_100bp", "p_frac_within_100bp"]].copy()
 t["matching"] = t.matching.map({"gc10": "random bins, 10 bp GC matched", "gc10+500": "10 bp + 500 bp window GC matched"})
