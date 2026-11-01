@@ -7,15 +7,15 @@ VSA vs other genic,3d7_rep1,0.0751,0.0595,0.0937
 VSA vs other genic,3d7_rep2,0.1258,0.1123,0.1369
 VSA vs other genic,DMSO,0.0192,-0.0042,0.045
 VSA vs other genic,RAPA,0.1436,0.0964,0.1827
-"VSA, subtelomeric*",3d7_rep1,0.0726,0.0599,0.0867
-"VSA, subtelomeric*",3d7_rep2,0.1252,0.1158,0.1362
-"VSA, subtelomeric*",DMSO,0.0339,0.0001,0.0656
-"VSA, subtelomeric*",RAPA,0.1515,0.0992,0.1975
-"VSA, internal*",3d7_rep1,0.101,0.0628,0.1574
-"VSA, internal*",3d7_rep2,0.1299,0.0904,0.1863
-"VSA, internal*",DMSO,-0.0139,-0.0501,0.0447
-"VSA, internal*",RAPA,0.1358,0.0706,0.238
-Non-VSA subtelomeric*,3d7_rep1,0.0225,-0.0009,0.0446
-Non-VSA subtelomeric*,3d7_rep2,-0.0393,-0.0558,-0.0244
-Non-VSA subtelomeric*,DMSO,0.0268,0.0036,0.0445
-Non-VSA subtelomeric*,RAPA,0.0362,0.0121,0.0543
+"VSA, subtelomeric",3d7_rep1,0.0726,0.0599,0.0867
+"VSA, subtelomeric",3d7_rep2,0.1252,0.1158,0.1362
+"VSA, subtelomeric",DMSO,0.0339,0.0001,0.0656
+"VSA, subtelomeric",RAPA,0.1515,0.0992,0.1975
+"VSA, internal",3d7_rep1,0.101,0.0628,0.1574
+"VSA, internal",3d7_rep2,0.1299,0.0904,0.1863
+"VSA, internal",DMSO,-0.0139,-0.0501,0.0447
+"VSA, internal",RAPA,0.1358,0.0706,0.238
+Non-VSA subtelomeric,3d7_rep1,0.0225,-0.0009,0.0446
+Non-VSA subtelomeric,3d7_rep2,-0.0393,-0.0558,-0.0244
+Non-VSA subtelomeric,DMSO,0.0268,0.0036,0.0445
+Non-VSA subtelomeric,RAPA,0.0362,0.0121,0.0543

@@ -14,7 +14,10 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent; A = HERE.parent
 OUT = HERE / "output"; OUT.mkdir(exist_ok=True)
-plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "svg.fonttype": "none", "axes.spines.top": False, "axes.spines.right": False})
+plt.rcParams.update({"font.family": ["Liberation Sans", "DejaVu Sans"], "font.size": 8, "svg.fonttype": "none",
+                     "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.8, "axes.labelsize": 9, "axes.labelcolor": "#333333",
+                     "xtick.color": "#333333", "ytick.color": "#333333", "xtick.labelcolor": "#333333", "ytick.labelcolor": "#333333",
+                     "xtick.labelsize": 8, "ytick.labelsize": 8, "legend.fontsize": 8, "text.color": "#333333"})
 d = pd.read_csv(A / "gene_ranking_go/output/differential_summary.csv")
 d = d[(d.a == "RAPA") & (d.b == "DMSO")].set_index("score")
 SC = [("raw", "raw", "#888888"), ("gc_bin", "GC-normalised (per track)", "#1b6ca8"), ("gc_gene", "gene-GC residual", "#e07b00")]
@@ -24,9 +27,10 @@ for i, (k, lab, c) in enumerate(SC):
     v = [d.loc[k, f"{f}_mean_diff"] for f in ("VAR", "RIF", "STEVOR")]
     ax.bar(np.arange(3) + (i - 1) * w, v, w, color=c, label=lab)
 ax.axhline(0, color="k", lw=0.6); ax.set_xticks(range(3)); ax.set_xticklabels(["var", "rif", "stevor"])
-ax.set_ylabel("RAPA - DMSO\nmean log2(U-enrichment)"); ax.legend(frameon=False, fontsize=6)
-ax.set_title("Fig S4  var/rif difference between RAPA and DMSO is GC-linked", loc="left", fontsize=7.5, fontweight="bold")
-fig.savefig(OUT / "figure_s4_rapa_dmso.svg", bbox_inches="tight"); fig.savefig(OUT / "figure_s4_rapa_dmso.png", bbox_inches="tight", dpi=600)
+ax.set_ylabel("RAPA - DMSO\nmean log2(U-enrichment)"); ax.legend(frameon=False)
+fig.subplots_adjust(left=0.2)
+fig.text(0.05 / fig.get_figwidth(), ax.get_position().y1, "A", ha="left", va="top", fontsize=22, color="#1b1918")
+fig.savefig(OUT / "figure_s4_rapa_dmso.svg", bbox_inches="tight"); (OUT / "figure_s4_rapa_dmso.svg").write_text((OUT / "figure_s4_rapa_dmso.svg").read_text().replace("Liberation Sans", "Arial")); fig.savefig(OUT / "figure_s4_rapa_dmso.png", bbox_inches="tight", dpi=600)
 g = pd.read_csv(A / "fig4C_gc_matched_null/output/matched_null_summary.csv")
 t = g[["dataset", "matching", "n_hotspots", "obs_frac_within_100bp", "null_frac_within_100bp", "fold_frac_within_100bp", "p_frac_within_100bp"]].copy()
 t["matching"] = t.matching.map({"gc10": "random bins, 10 bp GC matched", "gc10+500": "10 bp + 500 bp window GC matched"})
