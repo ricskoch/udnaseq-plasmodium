@@ -27,6 +27,7 @@ ORDER = [
     "fig3B_per_dataset",
     "fig3B_gc_profile",
     "gene_ranking_go",
+    "genic_vs_intergenic",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
     "fig4B_per_dataset",
