@@ -1,0 +1,151 @@
+dataset,score,class,feature,mean,count
+3d7_merged,gc_bin,RIF/STEVOR,downstream_1kb,-0.2262,189
+3d7_merged,gc_bin,RIF/STEVOR,exon_first,-0.3259,189
+3d7_merged,gc_bin,RIF/STEVOR,exon_last,0.02,189
+3d7_merged,gc_bin,RIF/STEVOR,introns,-0.2839,189
+3d7_merged,gc_bin,RIF/STEVOR,upstream_1kb,-0.1558,189
+3d7_merged,gc_bin,VAR,downstream_1kb,-0.0814,64
+3d7_merged,gc_bin,VAR,exon_first,0.0783,64
+3d7_merged,gc_bin,VAR,exon_last,-0.0907,64
+3d7_merged,gc_bin,VAR,introns,-0.0068,64
+3d7_merged,gc_bin,VAR,upstream_1kb,-0.3747,64
+3d7_merged,gc_bin,other multi-exon,downstream_1kb,0.0213,2692
+3d7_merged,gc_bin,other multi-exon,exon_first,0.0057,2692
+3d7_merged,gc_bin,other multi-exon,exon_last,0.0403,2692
+3d7_merged,gc_bin,other multi-exon,introns,0.0387,2692
+3d7_merged,gc_bin,other multi-exon,upstream_1kb,0.0049,2692
+3d7_merged,raw,RIF/STEVOR,downstream_1kb,-0.2623,189
+3d7_merged,raw,RIF/STEVOR,exon_first,-0.3659,189
+3d7_merged,raw,RIF/STEVOR,exon_last,0.2108,189
+3d7_merged,raw,RIF/STEVOR,introns,-0.324,189
+3d7_merged,raw,RIF/STEVOR,upstream_1kb,-0.2058,189
+3d7_merged,raw,VAR,downstream_1kb,-0.1368,64
+3d7_merged,raw,VAR,exon_first,0.2874,64
+3d7_merged,raw,VAR,exon_last,0.0235,64
+3d7_merged,raw,VAR,introns,-0.096,64
+3d7_merged,raw,VAR,upstream_1kb,-0.3566,64
+3d7_merged,raw,other multi-exon,downstream_1kb,-0.0121,2692
+3d7_merged,raw,other multi-exon,exon_first,-0.0236,2692
+3d7_merged,raw,other multi-exon,exon_last,0.0274,2692
+3d7_merged,raw,other multi-exon,introns,-0.0323,2692
+3d7_merged,raw,other multi-exon,upstream_1kb,-0.0515,2692
+3d7_rep1,gc_bin,RIF/STEVOR,downstream_1kb,-0.1755,189
+3d7_rep1,gc_bin,RIF/STEVOR,exon_first,-0.3128,189
+3d7_rep1,gc_bin,RIF/STEVOR,exon_last,0.0338,189
+3d7_rep1,gc_bin,RIF/STEVOR,introns,-0.2975,189
+3d7_rep1,gc_bin,RIF/STEVOR,upstream_1kb,-0.108,189
+3d7_rep1,gc_bin,VAR,downstream_1kb,-0.0667,64
+3d7_rep1,gc_bin,VAR,exon_first,0.1227,64
+3d7_rep1,gc_bin,VAR,exon_last,-0.1254,64
+3d7_rep1,gc_bin,VAR,introns,-0.0573,64
+3d7_rep1,gc_bin,VAR,upstream_1kb,-0.3597,64
+3d7_rep1,gc_bin,other multi-exon,downstream_1kb,0.0163,2692
+3d7_rep1,gc_bin,other multi-exon,exon_first,0.0076,2692
+3d7_rep1,gc_bin,other multi-exon,exon_last,0.0346,2692
+3d7_rep1,gc_bin,other multi-exon,introns,-0.0025,2692
+3d7_rep1,gc_bin,other multi-exon,upstream_1kb,-0.0024,2692
+3d7_rep1,raw,RIF/STEVOR,downstream_1kb,-0.2114,189
+3d7_rep1,raw,RIF/STEVOR,exon_first,-0.3491,189
+3d7_rep1,raw,RIF/STEVOR,exon_last,0.236,189
+3d7_rep1,raw,RIF/STEVOR,introns,-0.3302,189
+3d7_rep1,raw,RIF/STEVOR,upstream_1kb,-0.157,189
+3d7_rep1,raw,VAR,downstream_1kb,-0.1197,64
+3d7_rep1,raw,VAR,exon_first,0.344,64
+3d7_rep1,raw,VAR,exon_last,-0.0139,64
+3d7_rep1,raw,VAR,introns,-0.1448,64
+3d7_rep1,raw,VAR,upstream_1kb,-0.3419,64
+3d7_rep1,raw,other multi-exon,downstream_1kb,-0.0143,2692
+3d7_rep1,raw,other multi-exon,exon_first,-0.0201,2692
+3d7_rep1,raw,other multi-exon,exon_last,0.0232,2692
+3d7_rep1,raw,other multi-exon,introns,-0.0666,2692
+3d7_rep1,raw,other multi-exon,upstream_1kb,-0.0543,2692
+3d7_rep2,gc_bin,RIF/STEVOR,downstream_1kb,-0.2492,189
+3d7_rep2,gc_bin,RIF/STEVOR,exon_first,-0.2708,189
+3d7_rep2,gc_bin,RIF/STEVOR,exon_last,0.0255,189
+3d7_rep2,gc_bin,RIF/STEVOR,introns,-0.0987,189
+3d7_rep2,gc_bin,RIF/STEVOR,upstream_1kb,-0.2272,189
+3d7_rep2,gc_bin,VAR,downstream_1kb,-0.2238,64
+3d7_rep2,gc_bin,VAR,exon_first,0.0775,64
+3d7_rep2,gc_bin,VAR,exon_last,-0.0316,64
+3d7_rep2,gc_bin,VAR,introns,-0.2178,64
+3d7_rep2,gc_bin,VAR,upstream_1kb,-0.3504,64
+3d7_rep2,gc_bin,other multi-exon,downstream_1kb,-0.1049,2692
+3d7_rep2,gc_bin,other multi-exon,exon_first,-0.1407,2692
+3d7_rep2,gc_bin,other multi-exon,exon_last,-0.0971,2692
+3d7_rep2,gc_bin,other multi-exon,introns,-0.0301,2692
+3d7_rep2,gc_bin,other multi-exon,upstream_1kb,-0.155,2692
+3d7_rep2,raw,RIF/STEVOR,downstream_1kb,-0.3759,189
+3d7_rep2,raw,RIF/STEVOR,exon_first,-0.3486,189
+3d7_rep2,raw,RIF/STEVOR,exon_last,0.3186,189
+3d7_rep2,raw,RIF/STEVOR,introns,-0.2491,189
+3d7_rep2,raw,RIF/STEVOR,upstream_1kb,-0.3589,189
+3d7_rep2,raw,VAR,downstream_1kb,-0.3157,64
+3d7_rep2,raw,VAR,exon_first,0.3947,64
+3d7_rep2,raw,VAR,exon_last,0.1674,64
+3d7_rep2,raw,VAR,introns,-0.3676,64
+3d7_rep2,raw,VAR,upstream_1kb,-0.3908,64
+3d7_rep2,raw,other multi-exon,downstream_1kb,-0.1653,2692
+3d7_rep2,raw,other multi-exon,exon_first,-0.1879,2692
+3d7_rep2,raw,other multi-exon,exon_last,-0.1247,2692
+3d7_rep2,raw,other multi-exon,introns,-0.1833,2692
+3d7_rep2,raw,other multi-exon,upstream_1kb,-0.253,2692
+DMSO,gc_bin,RIF/STEVOR,downstream_1kb,-0.0595,189
+DMSO,gc_bin,RIF/STEVOR,exon_first,-0.1406,189
+DMSO,gc_bin,RIF/STEVOR,exon_last,0.2072,189
+DMSO,gc_bin,RIF/STEVOR,introns,-0.035,189
+DMSO,gc_bin,RIF/STEVOR,upstream_1kb,0.0481,189
+DMSO,gc_bin,VAR,downstream_1kb,-0.067,64
+DMSO,gc_bin,VAR,exon_first,0.0877,64
+DMSO,gc_bin,VAR,exon_last,0.024,64
+DMSO,gc_bin,VAR,introns,-0.208,64
+DMSO,gc_bin,VAR,upstream_1kb,-0.154,64
+DMSO,gc_bin,other multi-exon,downstream_1kb,0.0577,2692
+DMSO,gc_bin,other multi-exon,exon_first,0.0174,2692
+DMSO,gc_bin,other multi-exon,exon_last,0.054,2692
+DMSO,gc_bin,other multi-exon,introns,0.1508,2692
+DMSO,gc_bin,other multi-exon,upstream_1kb,-0.0066,2692
+DMSO,raw,RIF/STEVOR,downstream_1kb,-0.1595,189
+DMSO,raw,RIF/STEVOR,exon_first,-0.1952,189
+DMSO,raw,RIF/STEVOR,exon_last,0.3919,189
+DMSO,raw,RIF/STEVOR,introns,-0.1626,189
+DMSO,raw,RIF/STEVOR,upstream_1kb,-0.0871,189
+DMSO,raw,VAR,downstream_1kb,-0.1774,64
+DMSO,raw,VAR,exon_first,0.2525,64
+DMSO,raw,VAR,exon_last,0.1512,64
+DMSO,raw,VAR,introns,-0.3786,64
+DMSO,raw,VAR,upstream_1kb,-0.21,64
+DMSO,raw,other multi-exon,downstream_1kb,-0.0175,2692
+DMSO,raw,other multi-exon,exon_first,-0.0472,2692
+DMSO,raw,other multi-exon,exon_last,0.0095,2692
+DMSO,raw,other multi-exon,introns,-0.0407,2692
+DMSO,raw,other multi-exon,upstream_1kb,-0.1187,2692
+RAPA,gc_bin,RIF/STEVOR,downstream_1kb,-0.2029,189
+RAPA,gc_bin,RIF/STEVOR,exon_first,-0.3055,189
+RAPA,gc_bin,RIF/STEVOR,exon_last,0.1902,189
+RAPA,gc_bin,RIF/STEVOR,introns,-0.1615,189
+RAPA,gc_bin,RIF/STEVOR,upstream_1kb,-0.1376,189
+RAPA,gc_bin,VAR,downstream_1kb,-0.1954,64
+RAPA,gc_bin,VAR,exon_first,0.1302,64
+RAPA,gc_bin,VAR,exon_last,0.0039,64
+RAPA,gc_bin,VAR,introns,-0.4779,64
+RAPA,gc_bin,VAR,upstream_1kb,-0.2493,64
+RAPA,gc_bin,other multi-exon,downstream_1kb,0.0351,2692
+RAPA,gc_bin,other multi-exon,exon_first,0.0045,2692
+RAPA,gc_bin,other multi-exon,exon_last,0.043,2692
+RAPA,gc_bin,other multi-exon,introns,0.1675,2692
+RAPA,gc_bin,other multi-exon,upstream_1kb,-0.0053,2692
+RAPA,raw,RIF/STEVOR,downstream_1kb,-0.275,189
+RAPA,raw,RIF/STEVOR,exon_first,-0.3725,189
+RAPA,raw,RIF/STEVOR,exon_last,0.5383,189
+RAPA,raw,RIF/STEVOR,introns,-0.2863,189
+RAPA,raw,RIF/STEVOR,upstream_1kb,-0.2404,189
+RAPA,raw,VAR,downstream_1kb,-0.2514,64
+RAPA,raw,VAR,exon_first,0.5007,64
+RAPA,raw,VAR,exon_last,0.2145,64
+RAPA,raw,VAR,introns,-0.4842,64
+RAPA,raw,VAR,upstream_1kb,-0.2282,64
+RAPA,raw,other multi-exon,downstream_1kb,-0.0553,2692
+RAPA,raw,other multi-exon,exon_first,-0.0738,2692
+RAPA,raw,other multi-exon,exon_last,-0.009,2692
+RAPA,raw,other multi-exon,introns,-0.0616,2692
+RAPA,raw,other multi-exon,upstream_1kb,-0.1256,2692

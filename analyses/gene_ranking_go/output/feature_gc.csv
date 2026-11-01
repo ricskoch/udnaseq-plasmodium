@@ -1,0 +1,10 @@
+class,feature,gc
+RIF/STEVOR,exon_first,0.1988
+RIF/STEVOR,exon_last,0.3332
+RIF/STEVOR,introns,0.1312
+VAR,exon_first,0.3632
+VAR,exon_last,0.2937
+VAR,introns,0.1196
+other multi-exon,exon_first,0.1773
+other multi-exon,exon_last,0.1995
+other multi-exon,introns,0.1248

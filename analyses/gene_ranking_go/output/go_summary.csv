@@ -1,0 +1,91 @@
+dataset,score,n,vsa_excluded,n_annotated,n_sig_terms,top_terms
+3d7_rep1,raw,100,False,81,38,host cell surface receptor binding (6.9e-59); host cell surface binding (6.9e-59); infected host cell surface knob (3.1e-52); cell adhesion molecule binding (7.4e-52)
+3d7_rep1,raw,100,True,59,13,symbiont entry into host (7.5e-05); host cell surface binding (2.4e-03); host cell surface receptor binding (6.9e-03); microneme (9.1e-03)
+3d7_rep1,raw,200,False,147,41,host cell membrane (5.8e-54); symbiont-mediated perturbation of host process (5.8e-54); modulation of process of another organism (5.8e-54); host cell plasma membrane (6.8e-53)
+3d7_rep1,raw,200,True,120,7,symbiont entry into host (1.8e-04); host cell surface binding (1.4e-03); host cell surface receptor binding (2.1e-02); biological process involved in symbiotic interaction (2.2e-02)
+3d7_rep1,raw,400,False,277,39,symbiont-mediated perturbation of host process (2.3e-53); modulation of process of another organism (2.3e-53); host cell membrane (8.2e-52); host cell plasma membrane (1.4e-51)
+3d7_rep1,raw,400,True,251,5,regulation of immune response (5.7e-03); regulation of immune system process (6.7e-03); symbiont entry into host (7.1e-03); symbiont-containing vacuole (1.7e-02)
+3d7_rep1,gc_bin,100,False,50,0,
+3d7_rep1,gc_bin,100,True,50,0,
+3d7_rep1,gc_bin,200,False,110,2,host cell surface receptor binding (5.2e-03); host cell surface binding (5.3e-03)
+3d7_rep1,gc_bin,200,True,110,0,
+3d7_rep1,gc_bin,400,False,229,2,host cell surface binding (7.0e-03); host cell surface receptor binding (7.0e-03)
+3d7_rep1,gc_bin,400,True,226,0,
+3d7_rep1,gc_gene,100,False,53,7,structural molecule activity (5.8e-03); cytosolic small ribosomal subunit (3.8e-02); translation (5.0e-02); ribosomal subunit (5.0e-02)
+3d7_rep1,gc_gene,100,True,54,3,structural molecule activity (1.3e-02); cytosolic small ribosomal subunit (4.6e-02); host cell membrane (4.6e-02)
+3d7_rep1,gc_gene,200,False,116,2,structural molecule activity (1.2e-02); ribonucleoprotein complex (1.2e-02)
+3d7_rep1,gc_gene,200,True,117,2,structural molecule activity (4.0e-02); ribonucleoprotein complex (4.0e-02)
+3d7_rep1,gc_gene,400,False,244,6,structural molecule activity (8.4e-03); ribonucleoprotein complex (8.4e-03); structural constituent of ribosome (1.4e-02); translation (2.6e-02)
+3d7_rep1,gc_gene,400,True,243,5,structural molecule activity (2.2e-02); host cell surface binding (2.2e-02); ribonucleoprotein complex (2.2e-02); structural constituent of ribosome (2.5e-02)
+3d7_rep2,raw,100,False,76,37,symbiont-mediated perturbation of host process (6.0e-61); modulation of process of another organism (6.0e-61); antigenic variation (2.3e-56); response to host immune response (2.3e-56)
+3d7_rep2,raw,100,True,55,4,mitochondrial large ribosomal subunit (3.4e-02); organellar large ribosomal subunit (3.4e-02); flavin adenine dinucleotide binding (3.4e-02); plasma membrane (4.4e-02)
+3d7_rep2,raw,200,False,149,38,modulation of process of another organism (3.0e-117); symbiont-mediated perturbation of host process (3.0e-117); antigenic variation (2.4e-107); response to host immune response (2.4e-107)
+3d7_rep2,raw,200,True,106,0,
+3d7_rep2,raw,400,False,275,37,symbiont-mediated perturbation of host process (7.9e-129); modulation of process of another organism (7.9e-129); antigenic variation (4.1e-117); response to external stimulus (4.2e-117)
+3d7_rep2,raw,400,True,256,0,
+3d7_rep2,gc_bin,100,False,47,0,
+3d7_rep2,gc_bin,100,True,45,1,cellular component organization or biogenesis (4.6e-02)
+3d7_rep2,gc_bin,200,False,103,1,mitochondrial respiratory chain complex assembly (1.6e-02)
+3d7_rep2,gc_bin,200,True,102,3,mitochondrial respiratory chain complex assembly (1.9e-02); mitochondrion (2.9e-02); cellular component organization or biogenesis (2.9e-02)
+3d7_rep2,gc_bin,400,False,226,21,modulation of process of another organism (4.9e-02); symbiont-mediated perturbation of host process (4.9e-02); folic acid-containing compound metabolic process (4.9e-02); tetrahydrofolate metabolic process (4.9e-02)
+3d7_rep2,gc_bin,400,True,222,0,
+3d7_rep2,gc_gene,100,False,48,7,cellular component organization or biogenesis (1.6e-04); cellular component organization (1.6e-04); cellular component assembly (1.9e-04); protein-containing complex assembly (5.8e-03)
+3d7_rep2,gc_gene,100,True,48,7,cellular component organization or biogenesis (3.6e-04); cellular component organization (3.6e-04); cellular component assembly (3.6e-04); protein-containing complex assembly (8.8e-03)
+3d7_rep2,gc_gene,200,False,108,0,
+3d7_rep2,gc_gene,200,True,106,0,
+3d7_rep2,gc_gene,400,False,227,0,
+3d7_rep2,gc_gene,400,True,220,0,
+DMSO,raw,100,False,67,26,modulation of process of another organism (4.9e-14); symbiont-mediated perturbation of host process (4.9e-14); biological process involved in symbiotic interaction (3.1e-13); biological process involved in interaction with host (3.1e-13)
+DMSO,raw,100,True,56,1,mitotic recombination (1.7e-02)
+DMSO,raw,200,False,133,28,modulation of process of another organism (5.1e-25); symbiont-mediated perturbation of host process (5.1e-25); biological process involved in symbiotic interaction (2.7e-22); biological process involved in interaction with host (2.7e-22)
+DMSO,raw,200,True,130,42,heterocyclic compound binding (4.6e-05); anion binding (8.1e-05); small molecule binding (8.1e-05); nucleotide binding (8.1e-05)
+DMSO,raw,400,False,277,54,symbiont-mediated perturbation of host process (5.9e-40); modulation of process of another organism (5.9e-40); biological process involved in interaction with host (7.3e-33); biological process involved in symbiotic interaction (7.3e-33)
+DMSO,raw,400,True,270,80,small molecule binding (2.9e-09); heterocyclic compound binding (3.4e-09); anion binding (4.0e-09); ion binding (4.6e-09)
+DMSO,gc_bin,100,False,55,0,
+DMSO,gc_bin,100,True,52,0,
+DMSO,gc_bin,200,False,110,15,carbohydrate derivative metabolic process (4.3e-02); vacuole (4.3e-02); nucleotide biosynthetic process (4.3e-02); purine-containing compound biosynthetic process (4.3e-02)
+DMSO,gc_bin,200,True,108,18,carbohydrate derivative metabolic process (2.4e-02); nucleotide metabolic process (2.4e-02); purine nucleotide metabolic process (2.4e-02); purine-containing compound metabolic process (2.4e-02)
+DMSO,gc_bin,400,False,250,11,nucleotide biosynthetic process (4.0e-02); nucleotide metabolic process (4.0e-02); nucleoside phosphate biosynthetic process (4.0e-02); vacuole (4.0e-02)
+DMSO,gc_bin,400,True,245,10,nucleotide biosynthetic process (2.3e-02); nucleotide metabolic process (2.3e-02); carbohydrate derivative metabolic process (2.3e-02); organophosphate metabolic process (2.3e-02)
+DMSO,gc_gene,100,False,53,0,
+DMSO,gc_gene,100,True,51,0,
+DMSO,gc_gene,200,False,112,0,
+DMSO,gc_gene,200,True,111,0,
+DMSO,gc_gene,400,False,255,0,
+DMSO,gc_gene,400,True,251,0,
+RAPA,raw,100,False,79,38,modulation of process of another organism (1.1e-66); symbiont-mediated perturbation of host process (1.1e-66); antigenic variation (4.0e-62); response to other organism (4.0e-62)
+RAPA,raw,100,True,70,57,regulation of immune response (9.9e-05); regulation of immune system process (9.9e-05); lytic vacuole (1.8e-03); lysosome (1.8e-03)
+RAPA,raw,200,False,161,38,modulation of process of another organism (3.2e-124); symbiont-mediated perturbation of host process (3.2e-124); antigenic variation (3.7e-113); response to other organism (3.7e-113)
+RAPA,raw,200,True,146,113,heterocyclic compound binding (6.9e-07); carbohydrate derivative binding (2.7e-06); anion binding (2.7e-06); nucleotide binding (4.5e-06)
+RAPA,raw,400,False,317,43,symbiont-mediated perturbation of host process (8.0e-147); modulation of process of another organism (8.0e-147); antigenic variation (8.8e-130); response to external stimulus (1.3e-129)
+RAPA,raw,400,True,297,144,heterocyclic compound binding (6.8e-13); anion binding (4.0e-11); nucleotide binding (4.5e-11); nucleoside phosphate binding (5.7e-11)
+RAPA,gc_bin,100,False,55,0,
+RAPA,gc_bin,100,True,55,0,
+RAPA,gc_bin,200,False,127,8,aerobic electron transport chain (5.3e-03); aerobic respiration (5.3e-03); cellular respiration (5.6e-03); respiratory electron transport chain (6.2e-03)
+RAPA,gc_bin,200,True,125,21,aerobic electron transport chain (6.7e-03); aerobic respiration (6.7e-03); cellular respiration (7.1e-03); respiratory electron transport chain (8.0e-03)
+RAPA,gc_bin,400,False,263,8,ribosomal subunit (1.1e-02); structural constituent of ribosome (1.1e-02); mitochondrion (1.9e-02); large ribosomal subunit (1.9e-02)
+RAPA,gc_bin,400,True,259,26,mitochondrion (1.1e-02); ribosomal subunit (1.1e-02); nucleotide metabolic process (1.1e-02); structural constituent of ribosome (1.2e-02)
+RAPA,gc_gene,100,False,75,86,generation of precursor metabolites and energy (2.7e-03); lysosome (2.7e-03); lytic vacuole (2.7e-03); aerobic electron transport chain (3.3e-03)
+RAPA,gc_gene,100,True,75,68,generation of precursor metabolites and energy (4.0e-03); lysosome (4.0e-03); lytic vacuole (4.0e-03); aerobic electron transport chain (4.2e-03)
+RAPA,gc_gene,200,False,151,116,ribosomal subunit (9.0e-05); structural constituent of ribosome (9.0e-05); generation of precursor metabolites and energy (1.0e-03); structural molecule activity (1.0e-03)
+RAPA,gc_gene,200,True,150,127,ribosomal subunit (1.2e-05); structural constituent of ribosome (1.2e-05); structural molecule activity (9.3e-05); translation (1.8e-04)
+RAPA,gc_gene,400,False,303,142,ATP hydrolysis activity (6.4e-05); structural constituent of ribosome (6.4e-05); ribosomal subunit (6.4e-05); nucleotide metabolic process (1.2e-04)
+RAPA,gc_gene,400,True,298,146,ribosomal subunit (6.4e-06); structural constituent of ribosome (6.4e-06); ATP hydrolysis activity (2.0e-05); translation (8.1e-05)
+3d7_merged,raw,100,False,80,39,host cell surface receptor binding (3.3e-57); host cell surface binding (3.3e-57); cell adhesion molecule binding (5.1e-52); infected host cell surface knob (2.0e-50)
+3d7_merged,raw,100,True,56,7,host cell surface binding (3.6e-03); symbiont entry into host (5.3e-03); host cell surface receptor binding (5.3e-03); host cell membrane (5.3e-03)
+3d7_merged,raw,200,False,139,39,host cell surface receptor binding (3.2e-53); host cell surface binding (8.7e-53); cell adhesion molecule binding (2.4e-48); host cell membrane (2.4e-48)
+3d7_merged,raw,200,True,126,4,host cell surface binding (3.7e-03); microneme (8.3e-03); host cell surface receptor binding (2.5e-02); symbiont entry into host (4.6e-02)
+3d7_merged,raw,400,False,284,39,symbiont-mediated perturbation of host process (6.7e-50); modulation of process of another organism (6.7e-50); host cell membrane (2.5e-47); host cell plasma membrane (4.4e-47)
+3d7_merged,raw,400,True,261,0,
+3d7_merged,gc_bin,100,False,54,4,symbiont-containing vacuole membrane (4.2e-02); iron-sulfur cluster assembly (4.2e-02); metallo-sulfur cluster assembly (4.2e-02); structural molecule activity (4.5e-02)
+3d7_merged,gc_bin,100,True,55,0,
+3d7_merged,gc_bin,200,False,117,6,nucleosome (1.4e-02); structural constituent of chromatin (1.4e-02); structural molecule activity (2.8e-02); symbiont-containing vacuole membrane (2.8e-02)
+3d7_merged,gc_bin,200,True,117,4,nucleosome (1.8e-02); structural constituent of chromatin (1.8e-02); symbiont-containing vacuole membrane (4.4e-02); structural molecule activity (4.4e-02)
+3d7_merged,gc_bin,400,False,231,12,"structural constituent of chromatin (2.1e-03); structural molecule activity (2.1e-03); negative regulation of gene expression, epigenetic (3.3e-03); heterochromatin organization (3.3e-03)"
+3d7_merged,gc_bin,400,True,230,15,structural constituent of chromatin (2.2e-03); structural molecule activity (2.2e-03); epigenetic regulation of gene expression (4.2e-03); heterochromatin organization (4.2e-03)
+3d7_merged,gc_gene,100,False,58,12,structural molecule activity (1.3e-04); ribosomal subunit (1.6e-03); translation (1.6e-03); structural constituent of ribosome (2.2e-03)
+3d7_merged,gc_gene,100,True,59,13,structural molecule activity (3.2e-04); ribosomal subunit (3.1e-03); translation (3.1e-03); structural constituent of ribosome (4.1e-03)
+3d7_merged,gc_gene,200,False,123,11,structural molecule activity (1.5e-03); cytosolic large ribosomal subunit (7.9e-03); translation (7.9e-03); ribosomal subunit (7.9e-03)
+3d7_merged,gc_gene,200,True,122,11,structural molecule activity (3.1e-03); cytosolic large ribosomal subunit (1.2e-02); translation (1.2e-02); ribosomal subunit (1.2e-02)
+3d7_merged,gc_gene,400,False,253,15,structural molecule activity (1.2e-03); cytosolic large ribosomal subunit (2.9e-03); large ribosomal subunit (3.8e-03); ribosomal subunit (4.1e-03)
+3d7_merged,gc_gene,400,True,250,16,structural molecule activity (4.1e-04); ribosomal subunit (1.9e-03); large ribosomal subunit (1.9e-03); structural constituent of ribosome (1.9e-03)

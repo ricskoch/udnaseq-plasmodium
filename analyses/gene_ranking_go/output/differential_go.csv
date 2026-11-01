@@ -1,0 +1,13 @@
+a,b,score,direction,n_sig,top_terms
+RAPA,DMSO,raw,up_in_RAPA,37,antigenic variation (4.9e-59); response to other organism (4.9e-59); response to biotic stimulus (4.9e-59); response to host immune response (4.9e-59)
+RAPA,DMSO,raw,up_in_DMSO,4,translocation of peptides or proteins into host (3.9e-05); translocation of molecules into host (3.9e-05); ligase activity (3.6e-02); rRNA (cytosine) methyltransferase activity (3.6e-02)
+RAPA,DMSO,gc_bin,up_in_RAPA,12,spliceosomal tri-snRNP complex (5.0e-02); ribosomal subunit (5.0e-02); organelle membrane (5.0e-02); U6 snRNP (5.0e-02)
+RAPA,DMSO,gc_bin,up_in_DMSO,3,translocation of molecules into host (2.9e-06); translocation of peptides or proteins into host (2.9e-06); Maurer's cleft (3.2e-02)
+RAPA,DMSO,gc_gene,up_in_RAPA,17,purine ribonucleoside triphosphate metabolic process (1.7e-02); purine nucleoside triphosphate metabolic process (1.7e-02); nucleoside triphosphate metabolic process (1.7e-02); proton transmembrane transport (2.9e-02)
+RAPA,DMSO,gc_gene,up_in_DMSO,10,translocation of peptides or proteins into host (7.5e-07); translocation of molecules into host (7.5e-07); host cell cytoplasm part (9.6e-03); host cell surface receptor binding (1.1e-02)
+3d7_rep1,3d7_rep2,raw,up_in_3d7_rep1,7,cytosolic large ribosomal subunit (1.2e-03); macromolecule biosynthetic process (1.0e-02); structural constituent of ribosome (1.0e-02); translation (1.0e-02)
+3d7_rep1,3d7_rep2,raw,up_in_3d7_rep2,2,DNA-binding transcription factor activity (8.3e-04); transcription regulator activity (4.7e-02)
+3d7_rep1,3d7_rep2,gc_bin,up_in_3d7_rep1,27,ribonucleoprotein complex (2.0e-05); structural constituent of ribosome (5.0e-05); macromolecule biosynthetic process (6.1e-05); translation (1.5e-04)
+3d7_rep1,3d7_rep2,gc_bin,up_in_3d7_rep2,17,DNA-binding transcription factor activity (1.1e-03); modulation of process of another organism (2.9e-03); symbiont-mediated perturbation of host process (2.9e-03); transcription regulator activity (2.9e-03)
+3d7_rep1,3d7_rep2,gc_gene,up_in_3d7_rep1,0,
+3d7_rep1,3d7_rep2,gc_gene,up_in_3d7_rep2,0,

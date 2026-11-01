@@ -26,6 +26,7 @@ ORDER = [
     "fig3B_vsa_metaprofiles",
     "fig3B_per_dataset",
     "fig3B_gc_profile",
+    "gene_ranking_go",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
     "fig4B_per_dataset",
@@ -65,6 +66,7 @@ def summary():
 def main():
     pick = sys.argv[1:]
     run(["scripts/fetch_geo.py"])
+    run(["scripts/fetch_go.py"])
     for name in ORDER:
         if not pick or any(p in name for p in pick) or (name == "00_tracks" and not (ROOT / "analyses/00_tracks/output/tracks_100bp.npz").exists()):
             run([f"analyses/{name}/run.py"])
