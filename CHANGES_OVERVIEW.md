@@ -27,8 +27,8 @@ Unit: log2(U-enrichment) = log2((IP+1)/(INPUT+1)), 100 bp bins unless stated. "E
 
 Mac: `Plasmodium U-DNA-Seq_working/`
 - `Plasmodium_UDNA_cell_working.docx`: tracked changes (author "Claude (reanalysis)").
-- `Figures_working/figure_gcbias.svg`: new Figure 4 (panels A-C).
-- `Figures_working/figure_s4_rapa_dmso.svg`: new Figure S4.
+- `Figures_working/NEW_replaces_Fig4_gcbias.svg`: new Figure 4 (panels A-C); replaces old Fig 4 (`figure_gc.svg`, `figure_g4.svg`, `igv_panel_closeup.svg`). The repo script still writes it as `figure_gcbias.svg`.
+- `Figures_working/NEW_adds_FigS4_rapa_dmso.svg`: new Figure S4 (no old counterpart). The repo script writes it as `figure_s4_rapa_dmso.svg`.
 - `Figures_working/table_s2_g4.csv`: Table S2.
 - `Figures_working/figure_udnaseq_v2.svg`: exact copy of the original Fig 2 SVG (unedited).
 Repo `analyses/fig_gcbias`, `analyses/fig_supp` regenerate the new figures from the tracks.
