@@ -10,4 +10,3 @@ analyses/00_tracks/output/*.bedGraph
 analyses/00_tracks/output/*.npz
 analyses/00c_tracks_10bp/output/*.npz
 data/go/go-basic.obo
-data/h3k9me3/

@@ -68,6 +68,26 @@ udnaseq-plasmodium/
 Figures that share one underlying table are grouped in one folder (e.g. Fig. 2C, 3A, S1D and Table S1 all come
 from the per-gene means).
 
+### Reanalysis: GC bias, equal-GC contrasts (added for the revised manuscript)
+
+```
+├── scripts/fetch_go.py                UniProt GO annotations + go-basic.obo (GO enrichment)
+└── analyses/
+    ├── 00b_bin_approximation/ 00c_tracks_10bp/   1 bp -> 10 bp averaging error; per-sample 10 bp tracks
+    ├── fig3B_per_dataset/ fig4C_per_dataset/     Fig 3B / 4B / 4C in every dataset
+    ├── replicate_consistency/                    rep1 vs rep2 and DMSO vs RAPA consistency tables
+    ├── qc_library_bias/                          AT dropout, coverage vs GC, duplication, insert size
+    ├── gc_corrected/ fig3B_gc_profile/           per-track GC normalisation; 3B profile vs GC
+    ├── fig4C_gc_matched_null/                    G4 proximity against GC-matched nulls
+    ├── gene_ranking_go/                          top-n genes, GO, feature patterns, RAPA vs DMSO (raw vs GC-corrected)
+    ├── genic_vs_intergenic/                      genic and VSA contrasts at equal GC (primary analysis)
+    ├── subtelomere_position/                     VSA identity vs subtelomeric position at equal GC
+    ├── fig_gcbias/                               revised Figure 4 (GC bias + equal-GC contrasts)
+    └── fig_supp/                                 Fig S4 (RAPA vs DMSO) and Table S2 (G4 proximity)
+```
+
+Raw reads for the FASTQ -> bigWig rebuild are at SRA PRJNA1076816 (`alignment/`); tracks at GEO GSE262467.
+
 ## Samples
 
 | Label | Description |
