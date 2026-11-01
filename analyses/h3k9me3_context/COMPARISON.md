@@ -1,0 +1,86 @@
+# U-DNA-Seq vs H3K9me3 state at equal GC
+
+Public 3D7 wild-type H3K9me3 ChIP-seq and INPUT bigWigs, trophozoite 30-40 hpi (GEO GSE157709, WT rep2: GSM5353855 / GSM5353856).
+         Rep1 (GSM4773592) was not downloadable from GEO (HTTP 500 at time of run). Stage is earlier than the Percoll-synchronised
+         late schizonts of the U-DNA-Seq samples (last 4 h of the cycle); var/rif/stevor heterochromatin is stable over the cycle,
+         but this is an assumption, not a measurement.
+Method   H3K9me3 score per 100 bp bin = log2((IP/mean IP + 0.1)/(INPUT/mean INPUT + 0.1)). Heterochromatin = score >= HET (1.0;
+         sensitivity 0.5 and 1.5). Equal-GC contrasts as in genic_vs_intergenic (20 GC classes, weights min(n_a, n_b), 100 kb block bootstrap, raw tracks):
+         A. het vs non-het, all nuclear bins; B. same, genic only; C. VSA vs other genic bins within het bins and within non-het bins.
+
+Het fraction of nuclear bins (score >= 1): 0.080; of VSA-gene bins: 0.82; of other genic bins: 0.010.
+
+Point estimates at HET = 1.0:
+
+| dataset    |   A all bins: het - nonhet |   B genic: het - nonhet |   C1 within het: VSA - other genic |   C2 within non-het: VSA - other genic |
+|:-----------|---------------------------:|------------------------:|-----------------------------------:|---------------------------------------:|
+| 3d7_merged |                     -0.07  |                   0.032 |                             -0.03  |                                  0.035 |
+| 3d7_rep1   |                     -0.047 |                   0.054 |                             -0.03  |                                  0.041 |
+| 3d7_rep2   |                     -0.012 |                   0.098 |                              0.071 |                                  0.06  |
+| DMSO       |                     -0.006 |                   0.025 |                             -0.01  |                                 -0.046 |
+| RAPA       |                      0.022 |                   0.12  |                              0.048 |                                  0.037 |
+
+All cut-offs with 95 % CI:
+
+|   het_cutoff | dataset    | test                                 |   n_a |    n_b |   equalGC_diff |      lo |      hi |
+|-------------:|:-----------|:-------------------------------------|------:|-------:|---------------:|--------:|--------:|
+|          0.5 | 3d7_rep1   | A all bins: het - nonhet             | 18685 | 208173 |        -0.0445 | -0.055  | -0.0333 |
+|          0.5 | 3d7_rep1   | B genic: het - nonhet                |  8074 | 173082 |         0.0534 |  0.0306 |  0.07   |
+|          0.5 | 3d7_rep1   | C1 within het: VSA - other genic     |  6178 |   1896 |        -0.0241 | -0.0499 |  0.0114 |
+|          0.5 | 3d7_rep1   | C2 within non-het: VSA - other genic |  1169 | 171913 |         0.0368 |  0.0031 |  0.0739 |
+|          0.5 | 3d7_rep2   | A all bins: het - nonhet             | 18685 | 208173 |        -0.0115 | -0.0276 |  0.0026 |
+|          0.5 | 3d7_rep2   | B genic: het - nonhet                |  8074 | 173082 |         0.0962 |  0.0746 |  0.1134 |
+|          0.5 | 3d7_rep2   | C1 within het: VSA - other genic     |  6178 |   1896 |         0.0744 |  0.0477 |  0.1094 |
+|          0.5 | 3d7_rep2   | C2 within non-het: VSA - other genic |  1169 | 171913 |         0.0567 |  0.0203 |  0.0895 |
+|          0.5 | DMSO       | A all bins: het - nonhet             | 18685 | 208173 |        -0.0048 | -0.0206 |  0.0095 |
+|          0.5 | DMSO       | B genic: het - nonhet                |  8074 | 173082 |         0.0237 | -0.0078 |  0.0522 |
+|          0.5 | DMSO       | C1 within het: VSA - other genic     |  6178 |   1896 |        -0.0096 | -0.0561 |  0.0505 |
+|          0.5 | DMSO       | C2 within non-het: VSA - other genic |  1169 | 171913 |        -0.0512 | -0.0994 | -0.014  |
+|          0.5 | RAPA       | A all bins: het - nonhet             | 18685 | 208173 |         0.0228 |  0.0084 |  0.0364 |
+|          0.5 | RAPA       | B genic: het - nonhet                |  8074 | 173082 |         0.1172 |  0.0717 |  0.1543 |
+|          0.5 | RAPA       | C1 within het: VSA - other genic     |  6178 |   1896 |         0.0499 | -0.0016 |  0.1069 |
+|          0.5 | RAPA       | C2 within non-het: VSA - other genic |  1169 | 171913 |         0.0345 | -0.033  |  0.0861 |
+|          0.5 | 3d7_merged | A all bins: het - nonhet             | 18685 | 208173 |        -0.0678 | -0.0791 | -0.0563 |
+|          0.5 | 3d7_merged | B genic: het - nonhet                |  8074 | 173082 |         0.0311 |  0.0123 |  0.0468 |
+|          0.5 | 3d7_merged | C1 within het: VSA - other genic     |  6178 |   1896 |        -0.0233 | -0.0464 |  0.0041 |
+|          0.5 | 3d7_merged | C2 within non-het: VSA - other genic |  1169 | 171913 |         0.0317 |  0.0072 |  0.0578 |
+|          1   | 3d7_rep1   | A all bins: het - nonhet             | 18090 | 208768 |        -0.0466 | -0.0574 | -0.0368 |
+|          1   | 3d7_rep1   | B genic: het - nonhet                |  7806 | 173350 |         0.0542 |  0.0329 |  0.0721 |
+|          1   | 3d7_rep1   | C1 within het: VSA - other genic     |  6044 |   1762 |        -0.0303 | -0.0584 |  0.0046 |
+|          1   | 3d7_rep1   | C2 within non-het: VSA - other genic |  1303 | 172047 |         0.0412 |  0.0124 |  0.0725 |
+|          1   | 3d7_rep2   | A all bins: het - nonhet             | 18090 | 208768 |        -0.0115 | -0.0267 |  0.0024 |
+|          1   | 3d7_rep2   | B genic: het - nonhet                |  7806 | 173350 |         0.0982 |  0.075  |  0.1153 |
+|          1   | 3d7_rep2   | C1 within het: VSA - other genic     |  6044 |   1762 |         0.0709 |  0.0425 |  0.1063 |
+|          1   | 3d7_rep2   | C2 within non-het: VSA - other genic |  1303 | 172047 |         0.0599 |  0.0276 |  0.0958 |
+|          1   | DMSO       | A all bins: het - nonhet             | 18090 | 208768 |        -0.0056 | -0.0205 |  0.0088 |
+|          1   | DMSO       | B genic: het - nonhet                |  7806 | 173350 |         0.0246 | -0.0067 |  0.0525 |
+|          1   | DMSO       | C1 within het: VSA - other genic     |  6044 |   1762 |        -0.0098 | -0.0593 |  0.0468 |
+|          1   | DMSO       | C2 within non-het: VSA - other genic |  1303 | 172047 |        -0.0464 | -0.0925 | -0.009  |
+|          1   | RAPA       | A all bins: het - nonhet             | 18090 | 208768 |         0.0215 |  0.0069 |  0.0362 |
+|          1   | RAPA       | B genic: het - nonhet                |  7806 | 173350 |         0.1204 |  0.0763 |  0.1595 |
+|          1   | RAPA       | C1 within het: VSA - other genic     |  6044 |   1762 |         0.0481 | -0.003  |  0.1018 |
+|          1   | RAPA       | C2 within non-het: VSA - other genic |  1303 | 172047 |         0.037  | -0.0317 |  0.0876 |
+|          1   | 3d7_merged | A all bins: het - nonhet             | 18090 | 208768 |        -0.0697 | -0.0801 | -0.0589 |
+|          1   | 3d7_merged | B genic: het - nonhet                |  7806 | 173350 |         0.0317 |  0.013  |  0.0482 |
+|          1   | 3d7_merged | C1 within het: VSA - other genic     |  6044 |   1762 |        -0.03   | -0.0538 | -0.001  |
+|          1   | 3d7_merged | C2 within non-het: VSA - other genic |  1303 | 172047 |         0.035  |  0.014  |  0.0579 |
+|          1.5 | 3d7_rep1   | A all bins: het - nonhet             | 17005 | 209853 |        -0.0467 | -0.0569 | -0.0371 |
+|          1.5 | 3d7_rep1   | B genic: het - nonhet                |  7468 | 173688 |         0.056  |  0.0344 |  0.0752 |
+|          1.5 | 3d7_rep1   | C1 within het: VSA - other genic     |  5875 |   1593 |        -0.0313 | -0.0582 |  0.004  |
+|          1.5 | 3d7_rep1   | C2 within non-het: VSA - other genic |  1472 | 172216 |         0.0421 |  0.0173 |  0.0699 |
+|          1.5 | 3d7_rep2   | A all bins: het - nonhet             | 17005 | 209853 |        -0.0062 | -0.0226 |  0.0071 |
+|          1.5 | 3d7_rep2   | B genic: het - nonhet                |  7468 | 173688 |         0.1022 |  0.0773 |  0.121  |
+|          1.5 | 3d7_rep2   | C1 within het: VSA - other genic     |  5875 |   1593 |         0.0757 |  0.0479 |  0.1126 |
+|          1.5 | 3d7_rep2   | C2 within non-het: VSA - other genic |  1472 | 172216 |         0.0565 |  0.0191 |  0.0946 |
+|          1.5 | DMSO       | A all bins: het - nonhet             | 17005 | 209853 |        -0.0044 | -0.0186 |  0.0093 |
+|          1.5 | DMSO       | B genic: het - nonhet                |  7468 | 173688 |         0.0258 | -0.0055 |  0.0531 |
+|          1.5 | DMSO       | C1 within het: VSA - other genic     |  5875 |   1593 |        -0.011  | -0.0594 |  0.0439 |
+|          1.5 | DMSO       | C2 within non-het: VSA - other genic |  1472 | 172216 |        -0.0413 | -0.0852 | -0.006  |
+|          1.5 | RAPA       | A all bins: het - nonhet             | 17005 | 209853 |         0.0242 |  0.0087 |  0.0385 |
+|          1.5 | RAPA       | B genic: het - nonhet                |  7468 | 173688 |         0.1264 |  0.0814 |  0.167  |
+|          1.5 | RAPA       | C1 within het: VSA - other genic     |  5875 |   1593 |         0.0487 | -0.0003 |  0.1035 |
+|          1.5 | RAPA       | C2 within non-het: VSA - other genic |  1472 | 172216 |         0.0342 | -0.0418 |  0.0865 |
+|          1.5 | 3d7_merged | A all bins: het - nonhet             | 17005 | 209853 |        -0.0691 | -0.0792 | -0.0597 |
+|          1.5 | 3d7_merged | B genic: het - nonhet                |  7468 | 173688 |         0.0329 |  0.0144 |  0.0509 |
+|          1.5 | 3d7_merged | C1 within het: VSA - other genic     |  5875 |   1593 |        -0.0314 | -0.0559 | -0.0007 |
+|          1.5 | 3d7_merged | C2 within non-het: VSA - other genic |  1472 | 172216 |         0.036  |  0.0179 |  0.0561 |

@@ -29,6 +29,7 @@ ORDER = [
     "gene_ranking_go",
     "genic_vs_intergenic",
     "subtelomere_position",
+    "h3k9me3_context",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
     "fig4B_per_dataset",
@@ -69,6 +70,7 @@ def main():
     pick = sys.argv[1:]
     run(["scripts/fetch_geo.py"])
     run(["scripts/fetch_go.py"])
+    run(["scripts/fetch_h3k9me3.py"])
     for name in ORDER:
         if not pick or any(p in name for p in pick) or (name == "00_tracks" and not (ROOT / "analyses/00_tracks/output/tracks_100bp.npz").exists()):
             run([f"analyses/{name}/run.py"])
