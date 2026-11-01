@@ -30,6 +30,7 @@ ORDER = [
     "genic_vs_intergenic",
     "subtelomere_position",
     "fig_gcbias",
+    "fig2C_regenerated",
     "fig_supp",
     "fig4A_locus_track",
     "fig4B_gc_correlation",
